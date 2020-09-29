@@ -1,0 +1,53 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Desafio checkbox</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	input[type="checkbox"]{
+		width: 0;
+		height: 1px;
+		overflow: hidden;
+	}
+	label span{
+		display: inline-block;
+		border-radius: 15px;
+		border: 2px solid #bbb;
+		background-color: #ccc;
+		width: 60px;
+		height: 30px;
+		margin-right: 10px;
+		position: relative;
+	}
+	span:before{
+		content: '';
+		display: block;
+		background-color: #eee; 
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		transition: all .2s ease-in-out;
+	}
+	label input:focus +span{
+		box-shadow: 0 0 0 1px aqua;
+	}
+	input[type="checkbox"]:checked + span:before{
+		transform: translateX(30px);
+		background-color: #bbb;
+	}
+</style>
+<body>
+	<label><input type="checkbox" value="esporte"><span></span>Esporte</label>
+	<label><input type="checkbox" value="politica"><span></span>Política</label>
+	<label><input type="checkbox" value="educacao"><span></span>Educação</label>
+</body>
+
+</html>

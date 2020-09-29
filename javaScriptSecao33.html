@@ -1,0 +1,98 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 33): Date</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Date</h1>
+	<h2>Métodos</h2>
+	<ul>
+		<li>getDay()</li>
+		<li>getFullYear()</li>
+		<li>getHours()</li>
+		<li>getMilliseconds()</li>
+		<li>getMinutes()</li>
+		<li>getMounth()</li>
+		<li>getSeconds()</li>
+		<li>getTime()</li>
+		<li>setDate()</li>
+		<li>e todos os set acimas</li>
+	</ul>
+
+	<h2>Problema(quantos dias pro meu aniversário ou parabéns)</h2>
+	<div id="display"></div>
+
+	<h2>"Desafio"(data padrão brasileiro)</h2>
+	<div id="display2"></div>
+	<script>
+		
+		var minhaData = new Date();
+
+		console.log(minhaData);
+		console.log(minhaData.getDay()); // 0 - 6, sendo domingo 0 e sabado 6 
+		console.log(minhaData.getMonth()); // 0 - 11, sendo janeiro 0 e dezembro 11
+		console.log(minhaData.getYear()); // conta a partir do ano de 1900
+		console.log(minhaData.getFullYear()); // ano certo
+		console.log(minhaData.getHours());        //
+		console.log(minhaData.getMinutes())		  //hora/minuto/segundo/milisegundo	
+		console.log(minhaData.getSeconds());      //no instante da instancia do objeto
+  		console.log(minhaData.getMilliseconds()); //
+		console.log(minhaData.getTime());// numero de milisegundos que se passaram desde 1 janeiro de 1970
+		
+		console.log(minhaData.setMilliseconds(0)); // 
+		console.log(minhaData.setSeconds(0));      //  
+		console.log(minhaData.setMinutes(0));      //
+		console.log(minhaData.setHours(22));       // retornam os millisegundos apos o getTime()
+		console.log(minhaData.setDate(5));         //
+		console.log(minhaData.setMonth(6));        //
+		console.log(minhaData.setYear(1999));      //
+		console.log("Meu nascimento:",minhaData);
+
+		var Agora = new Date(2020,7,16,9,47,0,0); // de ano até milisegundos
+		console.log("Momento que digitei isso:",Agora);
+
+		//Problema
+
+		var $display = document.querySelector("#display");
+		
+		var hoje = new Date();
+		hoje.setHours(0);
+		hoje.setMinutes(0);
+		hoje.setSeconds(0);
+		hoje.setMilliseconds(0);
+		var anoAtual = hoje.getFullYear();
+
+		var dataNiver = new Date(anoAtual,6,5);
+
+		var hojeTS = hoje.getTime(); // pegando o valor em milisegundos
+		var dataNiverTS = dataNiver.getTime();
+
+		if (dataNiverTS < hojeTS) { // saber se o aniversario ja passou esse ano
+			dataNiver.setFullYear(++anoAtual);
+			dataNiverTS = dataNiver.getTime();
+		} 
+		else if(dataNiverTS === hojeTS){
+			$display.innerHTML = "Parabéns pelo seu aniversário hoje!"		}
+		const UM_DIA_TS = 24 * 60 * 60 * 1000; // qauntos milisegundos tem um dia
+
+		var diferenca = dataNiverTS - hojeTS;
+
+		var diasRestantes = diferenca/UM_DIA_TS; // convertendo para dias novamente
+
+		$display.innerHTML = "Faltam "+diasRestantes+" dias para seu aniversário";
+
+		//Desafio
+
+		$display2 = document.querySelector("#display2");
+
+		var hojeDesafio = new Date();
+		$display2.innerHTML = "Padrão brasileiro: "+hojeDesafio.getDate()+"/"+(hojeDesafio.getMonth()+1)+"/"+hojeDesafio.getFullYear();
+	</script>
+</body>
+
+</html>

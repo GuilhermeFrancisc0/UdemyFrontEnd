@@ -1,0 +1,55 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Início Javascript(Seção 19)</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+
+<body>
+	<h1>aloooww</h1>
+</body>	
+
+<script>
+	alert("alo");
+	var x = parseFloat(prompt("digite um número"));
+	var i = 1;
+	while(i <= 100){
+		document.write(x + " * " + i + " = " + x*i + "<br>");/*não usar document.write*/
+		i++;
+	}
+
+	// Aula seguinte, exercício
+	
+	document.write("<br>" + "<h2>Aula Seguinte</h2>");
+	var x = parseFloat(prompt("digite um número"));
+	for(var i = 1; i <= 100; i++){
+		document.write(x + " * " + i + " = " + x*i + "<br>");
+		if(i % 10 == 0){
+			document.write("<hr>")
+		}
+	}
+
+	// Aula seguinte, exercício
+	
+	document.write("<br>" + "<h2>Aula Seguinte</h2>");
+	for(i = 1004; i <= 2017; i++){
+		if(i % 4 == 0){
+			document.write(i+ " é ano bissexto." + "<br>");
+		}
+	}
+
+	// Aula seguinte, exercício
+
+	document.write("<br>" + "<h2>Aula Seguinte</h2>");
+	for(i = 1000; i <= 2025; i++){
+		if(i % 4 == 0 && i % 100 !=0 || i % 400 ==0){
+			document.write(i+ " é REALMENTE ano bissexto." + "<br>");
+		}
+	}
+</script>
+
+</html>

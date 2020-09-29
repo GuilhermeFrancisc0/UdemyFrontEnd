@@ -1,0 +1,40 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Media</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Áudio</h1>
+		<audio controls autoplay loop> 
+			<source src="mozart_trompa.mp3" type="audio/mp3">
+			<source src="mozart_trompa.ogg" type="audio/ogg">
+			<p>Seu browser não suporta esse recurso</p>
+		</audio>
+	
+	<h1>Vídeo</h1>
+		<video controls>
+			<source src="video.mp4" type="video/mp4">
+			<source src="video.ogg" type="video/ogg">
+			<source src="video.webm" type="video/webm">
+			<p>Seu browser não suporta esse recurso</p>	
+		</video>
+	
+	<h1>Iframes</h1>
+		<h2>Iframe geral</h2>
+			<iframe src="https://www.terra.com.br/" width="50%" height="300" frameborder="0"></iframe>
+		<h2>Iframe vídeo youtube específico</h2>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/BOtg6dGTnLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<h1>Figure</h1>
+		<figure>
+			<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+			<figcaption>Legenda da imagem</figcaption>
+		</figure>
+</body>
+
+</html>

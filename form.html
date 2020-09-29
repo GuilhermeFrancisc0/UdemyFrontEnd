@@ -1,0 +1,64 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Form</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	.formularioLogin{
+		width: 250px;
+		margin: 50px auto 0;
+		font-family: sans-serif;
+	}
+	.formularioLogin label{
+		display: block;
+		margin: 15px 0 5px 0;
+	}
+	.formularioLogin fieldset{
+		background-color: beige;
+	}
+	legend{
+		font-size: 32px;
+		text-align: center;
+	}
+	#user, #password, .botao{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 15px;
+		font-size: 18px;
+	}
+	#user, #password{
+		margin-bottom: 15px;
+		background-color: #ddd;
+	}
+	#user:focus, #password:focus{
+		background-color: white;
+	}
+</style>
+<body>
+	<h1>Exemplo de formulário</h1>
+	<form action="http://google.com/search" method="GET" target="_blank"><!--action: servidor que receberá os dados, get: função de receber os dados-->
+		<label for="textoBusca">Buscar no Google:</label><!-- texto vinculado ao input com id igual e o name de acordo com o back-->
+		<input type="text" name="q" id="textoBusca"> <!-- caixa de texto -->
+		<input type="submit" value="OK"> <!-- caixa para enviar -->
+	</form>
+	<hr>
+	<form action="#" method="POST" class="formularioLogin">
+		<fieldset>
+			<legend>Login</legend>
+			<label for="user">Digite seu usuário:</label>
+			<input type="text" name="user" id="user" autofocus>
+			<label for="password">Digite sua senha:</label>
+			<input type="password" name="password" id="password">
+			<input type="submit" value="Login" class="botao">
+		</fieldset>
+	</form>
+
+</body>
+
+</html>

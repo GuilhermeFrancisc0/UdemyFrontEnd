@@ -1,0 +1,120 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 26): Objetos</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Objetos</h1>
+	<p>Objetos nativos são objetos que fazem parte da própria linguagem. Ex: string, number, boolean, array, object, date, math.</p>
+	
+	<!--  -->
+	
+	<h2>Sintaxe formal</h2>
+	<p>Ex: var obj = new Object();</p>
+	
+	<h2>Sintaxe Literal</h2>
+	<p>Ex: var obj = {};</p>
+
+	<h2>Objetos do ambiente de hospedagem</h2>
+	<p>Objetos acrescentados dependendo do ambiente que o código está sendo interpretado.</p>
+	<p>Ex: para browser o alert();</p>
+
+	<!--  -->
+
+	<h2>Construtores</h2>
+	<p>Construtores são objetos que utilizam o operador 'new' para ter uma instância(ou "cópia") do objeto.<br>Ex:</p>
+	<pre>
+	function Lapis(preco, cor){  // Construtor utilizado para construir instâncias de objetos
+		this.preco = preco || 1;
+		this.cor = cor || "black";
+		this.mudarCor = function(cor){
+			this.cor = cor; // Onde o this será o this.mudarCor nesse contexto(this.cor = this.mudarCor.cor = lapis1.mudarcor(cor))
+		}
+	}
+	var lapis1 = new Lapis();
+
+	//Onde o this será o lapis1 nesse contexto(this.preco = lapis1.preco)
+	</pre>
+
+	<h2>Referência e Valor</h2>
+	<p>Elementos primitivos(Number, String, Boolean) são passados como o valor, ou seja, caso sejam associados não mudam o valor um do outro.</p>
+	<p>Ex:<br>var n = 0;<br>var n1 = n;<br>n+1;<br>resultado: n = 1 e n1 = 0</p>
+	<p>Elementos não primitivos(array, object) são passados como referência, ou seja, caso sejam associados mudam o valor um do outro, pois apontam pro mesmo espaço de memória.</p>
+	<p>Ex:<br>var arr = [0];<br>var arr1 = arr;<br>arr1.push(3);<br>resultado: arr = [0,3] e arr1 = [0,3]</p>
+
+	<!--  -->
+
+
+	<script>
+		var	x = [0];
+		function mudaX(x) { // x no escopo local da função
+			var y = x; // apontam pro mesmo lugar da memória, ou seja, se mudar um muda o outro
+			y.push(2);
+			console.log("mudaX: ");
+			console.log(x);
+			console.log(y);
+		}
+		mudaX(x);
+		console.log("x: ");
+		console.log(x); // muda o valor de x, pois um array se relaciona com referência
+
+		console.log("-----Aula Seguinte-----");
+
+		var caneta1 = {
+			cor: "red",
+			mudarCor: function(cor){
+				this.cor = cor; // this. = caneta1. , o this esta associado ao contexto envolvido
+			
+			}
+		}
+
+		console.log("-----Aula Seguinte-----");
+
+		function Lapis(preco, cor){
+			this.preco = preco || 1;
+			this.cor = cor || "black";
+			this.mudarCor = function(cor){
+				this.cor = cor;
+			}
+		}
+		var lapis1 = new Lapis();
+
+		console.log("-----Aula Seguinte-----");
+
+		var pessoa1 = {
+			nome : "Guilherme",
+			sobrenome : "Francisco"
+		};
+		var pessoa2 = {
+			nome : "Guilherme2",
+			sobrenome : "Francisco2"
+		};
+		var pessoa3 = {
+			nome : "Guilherme3",
+			sobrenome : "Francisco3"
+		};
+		/*
+		console.log(pessoa1.nome+" "+pessoa1.sobrenome);
+		console.log(pessoa2.nome+" "+pessoa2.sobrenome);
+		console.log(pessoa3.nome+" "+pessoa3.sobrenome);
+		*/
+		/* 
+		for(var i=0; i<=3;i++){
+		 	console.log(window["pessoa"+i].nome+''+window["pessoa"+i].sobrenome);
+		}
+		*/
+
+		var pessoas =[pessoa1, pessoa2, pessoa3];
+		for(var i=0; i<=3;i++){
+		 	//console.log(pessoas[i]);
+		 	//console.log(pessoas[i].nome+ " " +pessoas[i].sobrenome); //Nao sei pq ta dando problema....................
+		}
+	</script>
+</body>
+
+</html>

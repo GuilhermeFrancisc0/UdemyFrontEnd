@@ -1,0 +1,42 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>child</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	div p:nth-of-type(4){
+		color: red;
+	}
+	.destaque{
+		background-color: #ccc;
+	}
+	.destaque:first-child{
+		color: blue;
+	}
+	p:last-child{
+		text-align: center;
+	}
+</style>
+<body>
+	<div>
+		<p class="destaque">meu paragrafo</p>
+		<p>meu paragrafo</p>
+		<hr>
+		<p class="destaque">meu paragrafo</p>
+		<p>meu paragrafo</p>
+		<hr>
+		<p class="destaque">meu paragrafo</p>
+		<p>meu paragrafo</p>
+		<hr>
+		<p>meu paragrafo</p>
+		<p>meu paragrafo</p>
+		
+	</div>
+</body>
+
+</html>

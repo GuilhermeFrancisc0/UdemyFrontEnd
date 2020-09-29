@@ -1,0 +1,105 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Grid Template</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	.gridContainer{
+		width: 300px;
+		background-color: #ccc;
+	}
+	.gridItem{
+		background-color: #999;
+		font-size: 2em;
+		font-family: sans-serif;
+		padding:  5px 15px;
+	}
+	.gridItem:nth-child(even){
+		background-color: #999;
+		color: white;
+	}
+	.gridItem:nth-child(odd){
+		background-color: #eee;
+	}
+	/* GRID */
+	.gridContainer{
+		display: grid;
+		grid-template-columns: 100px 100px 100px;
+		grid-template-rows: repeat(2, 100px); /* outra forma de escrever */
+		grid-row-gap: 30px;
+		grid-column-gap: 10px;
+		
+	}
+	.gridContainer2{
+		width: 100%;
+		background-color: #ccc;
+		display: grid;
+		grid-template-columns: 100px 2fr 1fr;/* fr medida que distribui o espaço excedente, de forma ponderada, dos itens*/
+		grid-template-rows: repeat(2, 100px); 
+		grid-gap: 30px 10px;
+	}
+	.gridContainer3{
+		width: 100%;
+		background-color: #ccc;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 100px);
+		grid-gap: 30px 10px; 
+	}
+	.gridContainer3 .gridItem:nth-child(1){ /* mudando a posiçao do 1 filho*/
+		background-color: red;
+		grid-row-start: 1;
+		grid-row-end: 2; 
+		grid-column-start: 3;
+		grid-column-end: 4; 
+	}
+	.gridContainer3 .gridItem:nth-child(2){
+		background-color: yellow;
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+	}
+	.gridContainer3 .gridItem:nth-child(3){
+		background-color: green;
+		grid-row: 1 / span 2;
+	}
+	.gridContainer3 .gridItem:nth-child(6){
+		background-color: blue;
+		grid-column: 1 / -1;
+	}
+</style>
+<body>
+	<h2>Grid Layout</h2>
+	<div class="gridContainer">
+		<div class="gridItem">1</div>
+		<div class="gridItem">2</div>
+		<div class="gridItem">3</div>
+		<div class="gridItem">4</div>
+		<div class="gridItem">5</div>
+		<div class="gridItem">6</div>
+	</div>
+	<h2>Grid Layout 2</h2>
+	<div class="gridContainer2">
+		<div class="gridItem">1</div>
+		<div class="gridItem">2</div>
+		<div class="gridItem">3</div>
+		<div class="gridItem">4</div>
+		<div class="gridItem">5</div>
+		<div class="gridItem">6</div>
+	</div>
+	<h2>Grid Layout 3</h2>
+	<div class="gridContainer3">
+		<div class="gridItem">1</div>
+		<div class="gridItem">2</div>
+		<div class="gridItem">3</div>
+		<div class="gridItem">4</div>
+		<div class="gridItem">5</div>
+		<div class="gridItem">6</div>
+	</div>
+</body>
+
+</html>

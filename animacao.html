@@ -1,0 +1,69 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Animação</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		@keyframes anda {
+			0%{
+				transform: translateX(0);
+				background-color: yellow;
+			}
+			25%, 75%{
+				height: 80px;
+			}
+			100%{
+				transform: translateX(400px);
+				background-color: blue;
+			}
+		}
+		#anima-time div{
+			width: 80px;
+			height: 50px;
+			border: 2px solid red;
+		}
+		#anima-time div:nth-child(1){
+			animation-name: anda;
+			animation-duration: 2s;
+			animation-timing-function: ease-in;
+			animation-iteration-count: infinite;  
+			animation-direction: alternate-reverse;
+			/* ease-in => acelera 
+			   ease-out => desacelera
+			   ease-in-out => acelera e desacelera */
+		}
+		#anima-time div:nth-child(2){
+			animation: anda 2s ease-out infinite alternate; /* Escrita short-hand */
+			animation-delay: 1s;
+		}
+		#anima-time div:nth-child(3){
+			animation: anda 2s ease-out 2 2s alternate;/* Delay adicionado do lado do alternate */
+			background-color: red;
+			animation-fill-mode: backwards;/* Condiçao do frame antes ou depois da animação */
+		}
+		#anima-time div:nth-child(4){
+			animation: anda 2s ease-out infinite 3s alternate both;/* fill-mode adicionado no final */
+			animation-play-state: running;	
+		}
+		#anima-time div:nth-child(4):hover{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<h1>Animação</h1>
+	<p>Notação shorthand => animation: (name) (duration) (time-function) (delay) (iteration-count) (direction) (fill-mode) (play-state);</p>
+	<div id="anima-time">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+</body>
+
+</html>

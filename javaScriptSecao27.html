@@ -1,0 +1,113 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 27): Evento</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Eventos</h1>
+	
+	<div class="container">
+		<button id="button1" onclick="clicar()">botão 1</button> <!-- maneira antiga, DOM LVL0 -->
+		<button id="button2">botão 2</button>
+		<button id="button3">botão 3</button>
+	</div>
+	
+	<div class="container">
+		<h2>Propagação de eventos</h2>
+		<p>É a capacidade dos eventos de percorrerem a estrutura HTML, desde o elemento original e o nível mais alto(página web, tag body).</p>
+		<p>clica ai e vê no console</p>
+		<div id="d1" style="background-color:red; padding: 25px;">
+			texto dentro da div
+			<span style="background-color: yellow;">texto dentro da span</span>
+		</div>	
+	</div>
+	<div class="container">
+		<h2>Objeto Event</h2>
+		<p>Objeto passado por parâmetro para a função que foi atrelada, nos fornecendo várias informações adicionais sobre o evento em si. Este objeto varia de acordo com o tipo do evento.</p>
+		<div id="aperteAqui" style="border:1px solid purple; width: 76px;">Aperte aqui</div>
+	</div>
+	<div class="container">
+		<h2>Delegação de eventos</h2>
+		<p>Técnica que consiste em atrelar o evento a um elemento mais alto e verificar quem foi o elemento clicado.</p>
+		<p>clica ai e vê no console</p>
+		<ul>
+			<li>lista 1</li>
+			<li>lista 2</li>
+			<li>lista 3</li>
+		</ul>
+	</div>	
+	<script>
+		var button2 = document.querySelector("#button2"); 
+		button2.onclick = clicar; // DOM LVL0, se botar os '()' no final da função, irá executar a linha sem ser chamada no onclick e perderá a conexão com o button. Se a função tiver valor de retorno, será atribuida no button
+		function clicar() {
+			alert("clicou!");
+		}
+
+		//Aula Seguinte
+
+		var button3 = document.querySelector("#button3"); 
+		
+		button3.addEventListener("click",function(){ // DOM LVL2, pode atrelar mais de um evento no elemento html
+			alert("Clicou com DOM LVL2");
+		});
+		button3.addEventListener("click",function(){ 
+			alert("Clicou com DOM LVL2 com outro evento");
+		});
+
+		//Aula seguinte
+
+		var $d1 = document.getElementById("d1"); // $ para indicar q eh um elemento HTML
+		var $d1Span = document.querySelector("#d1 span");
+
+		$d1.addEventListener("click", function(){
+			console.log("click no $d1");
+		});
+		$d1Span.addEventListener("click", function(){
+			console.log("click no $d1Span"); 
+		});
+		$d1Span.addEventListener("click", function(){
+			console.log("click no $d1Span"); 
+		},true);
+
+		//Aula Seguinte
+
+		var $aperteAqui = document.querySelector("#aperteAqui");
+		$aperteAqui.addEventListener("click",function(evt){
+			console.log("Clicou no aperteAqui");
+			console.log(evt); // o evento
+			console.log(evt.currentTarget); // elemento pela qual foi atrelado o evento, $aperteAqui
+			console.log(evt.target); // quem disparou o evento
+			console.log(this);
+		})
+
+		//Aula Seguinte
+
+		var $ul = document.querySelector("ul");
+		var $lis = document.querySelectorAll("li");
+		// var i=0;
+		// while($lis[i]){
+		// 	$lis[i].addEventListener("click", function(evt){
+		// 	evt.stopPropagation();
+		// 	console.log("Clicou na li");
+		// 	});
+		// 	i++;
+		// }
+		$ul.addEventListener("click",function(evt){
+			evt.stopPropagation();
+			console.log(this); // $ul
+			console.log(evt.currentTarget); // $ul
+			console.log(evt.target); // alguma li que disparou
+			console.log(evt.target.nodeName); // retorna o tipo do elemento numa string
+			if(evt.target.nodeName == "LI"){
+				alert("clicou na LI");
+			}
+		});
+	</script>
+</body>
+
+</html>

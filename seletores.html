@@ -1,0 +1,91 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Seletores</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		article:not(.destaque){
+			color: orange;
+		}
+		article:nth-child(1) a{
+			color: red;
+		}
+		article:nth-child(3) > p{ /* filho direto*/
+			color: red;
+		}
+		article:nth-child(5) h3 + p{ /* o parágrafo imediatamente após um h3*/
+			color: red;
+		}
+		article:nth-child(7) h3 ~ p{ /* todos parágrafos imediatamente após um h3*/
+			color: red;
+		}
+		.destaque{
+			background-color: yellow;
+		}
+		a[href="#"]{
+			opacity: .2;
+		}
+		a[href^="http"]{/* ^ indica que começa com aquele termo*/
+			color: red;
+		}
+		a[title]{
+			color:green;
+		}
+		a[href$=".pdf"]{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		<h3>
+			titulo
+		</h3>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+	</article>
+	<hr>
+	<article>
+		<h3>
+			titulos
+		</h3>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+	</article>
+	<hr>
+	<article>
+		<h3>
+			titulos
+		</h3>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+	</article>
+	<hr>
+	<article class="destaque">
+		<h3>
+			titulos
+		</h3>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+		<p> paragrafo <a href="#">apenas um link com <b>negrito</b></a></p>
+	</article>
+	<hr>
+
+	<ul>
+		<li><a href="#">link falso</a></li>
+		<li><a href="#">link falso</a></li>
+		<li><a href="http://google.com" target="_blank">link externo</a></li>
+		<li><a href="http://google.com/qq.pdf" target="_blank">link externo</a></li>
+		<li><a href="C:\Users\guilh\OneDrive\Desktop\menu.html" target="_blank" title="veja exercicio anterior">link interno</a></li>
+	</ul>	
+</body>
+
+</html>

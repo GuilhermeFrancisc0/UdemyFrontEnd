@@ -1,0 +1,99 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>CSS efeitos</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	body{
+		background-image: linear-gradient(to left,blue,transparent), linear-gradient(to right bottom,green,red);
+		/*(direção,cor1,cor2,...,corN), podendo ter varios conjutos de gradientes e imagens tambem*/
+	}
+	h1{
+		font-family: sans-serif;
+		font-size: 50px;
+		text-shadow: -1px 1px 0 #5d5d5d, -2px 2px 0 #727272, -3px 3px 0 #868686, -4px 4px 0 #a3a3a3, -5px 5px 0 #bcbcbc;
+	}
+	#radius1{
+		background-color: orange;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:50%; /*circunferência perfeita */
+		display: inline-block;
+	}
+	#radius2{
+		background-color: orange;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:10px 30px 50px 70px; /* cima-esquerda cima-direita baixo-direita baixo-esquerda*/
+		display: inline-block;
+	}
+	#radius3{
+		background-color: orange;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:10px 30px 50px 70px/70px 50px 30px 10px; /* parte horizontal / parte vertical*/
+		display: inline-block;
+	}
+	#shadow1{
+		background-color: yellow;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:50%;
+		box-shadow: 30px 20px black; /* deslocamento horizontal, deslocamento vertical, cor da sombra*/
+		display: inline-block;
+	}
+	#shadow2{
+		background-color: yellow;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:10px 30px 50px 70px;
+		box-shadow: -30px -20px  10px black; /* deslocamento horizontal, deslocamento vertical, esfumaçamento, cor da sombra*/ 
+		display: inline-block;
+	}
+	#shadow3{
+		background-color: yellow;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		border-radius:10px 30px 50px 70px/70px 50px 30px 10px; 
+		box-shadow: -30px -20px  10px black,30px -20px  20px blue,-30px 20px  5px green; /*múltiplas sombras*/
+		display: inline-block;
+	}
+	#transicao{
+		width: 100px;
+		height: 100px;
+		background-color: orange;
+		transition-property: width, height;/* propriedade que está sendo animada*/
+		transition-duration: .5s, 0.3s;
+		transition-timing-function: ease,cubic-bezier(.5,.1,.5,.9); ;/* Função que determina se desacelera e/ou acelera*/
+		transition-delay: 0.3s, 1s;
+	}
+	#transicao:hover{
+		width: 200px;
+		height: 400px;
+	}
+</style>
+<body>
+	<h1>CSS efeitos</h1>
+		<div id="radius1"></div>
+		<div id="radius2"></div>
+		<div id="radius3"></div>
+		<br>
+		<div id="shadow1"></div>
+		<div id="shadow2"></div>
+		<div id="shadow3"></div>
+		<br>
+		<div id="transicao">1</div>
+</body>
+
+</html>

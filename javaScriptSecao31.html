@@ -1,0 +1,65 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 31): Math</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		#display{
+			color: red;
+			height: 18px;
+			width: 240px;
+			border-bottom: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Math</h1>
+	<h2>Métodos</h2>
+	<ul>
+		<li>min()</li>
+		<li>max()</li>
+		<li>round()</li>
+		<li>floor()</li>
+		<li>ceil()</li>
+		<li>pow()</li>
+		<li>sqrt()</li>
+		<li>random()</li>
+	</ul>
+	<p>PS: Ver o código e console</p>
+
+	<h2>Desafio(Sorteio)</h2>
+	<p>Digite o número máximo a ser sorteado</p>
+	<input type="text" name="n" id="n">
+	<button type="submit" id="btn">Sortear</button>
+	<div id="display"></div>
+	<script>
+		console.log(Math.min(1,2,3)); // retorna o menor numero
+		console.log(Math.max(1,2,3)); // retorna o maior numero
+		console.log(Math.round(54.32)); // retorna o numero arredondado
+		console.log(Math.floor(54.32)); // arredonda para baixo
+		console.log(Math.ceil(54.32)); // arredonda para cima
+		console.log(Math.pow(5,2)); // === 5 ** 2
+		console.log(Math.sqrt(25)); // raiz quadrada
+		console.log(Math.cbrt(8)); // raiz cubica
+		console.log(Math.random()); // numero aleatorio de 0 ate 0.999....
+		console.log(Math.PI); // retona o valor de PI
+
+		//Desafio 1
+
+		var $n = document.querySelector("#n");
+		var $btn = document.querySelector("#btn");
+		var $display = document.querySelector("#display");
+		$btn.addEventListener("click",function(){
+			var nSorteado = Math.floor(((parseInt($n.value)) + 1) * Math.random());
+			$display.innerHTML = "Número sorteado: "+nSorteado;
+
+		});
+	</script>
+</body>
+
+</html>

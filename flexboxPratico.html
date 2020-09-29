@@ -1,0 +1,56 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Flexbox Prático</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	.cardContainer{
+		display: flex;
+	}
+	.cardFlex{
+		border: 1px solid black;
+		width: 30%;
+		padding: 10px;
+		margin: 1%;
+		display: flex;
+		flex-direction: column; /* mudou os eixos do row */
+	}
+	.cardFlex p{
+		flex-grow: 1; /* pegou todo espaço excedente*/
+	}
+	.cardFlex button{
+		align-self: flex-end; /* alinhou o botao pra baixo na referencia de colunas */
+	}
+</style>
+<body>
+	<h2>Display Flex</h2>
+	<p>acomodar ou distribuir elementos de modo fácil</p>
+	<p>Ajuda a centralizar na vertical</p>
+		
+	<section class="cardContainer">
+		<article class="cardFlex">
+			<h3>titulo</h3>
+			<p> sasdasd asfsa f4rtrtwref dsawer4eadasd sadsatewtwefdsfrts </p>
+			<button>Vai</button>
+		</article>
+
+		<article class="cardFlex">
+			<h3>titulo</h3>
+			<p> sasdasd asfsa f4rtrtwref dsawer4eadasd sadsatewtwefdsfrts dasdasdasfdfsdfdsafdsfda </p>
+			<button>Vai</button>
+		</article>
+
+		<article class="cardFlex">
+			<h3>titulo</h3>
+			<p> sasdasd asfsa f4rtrtwref </p>
+			<button>Vai</button>
+		</article>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 29): Strings</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Strings</h1>
+	
+	<h2>Literais</h2>
+	<p>var meuTexto = "olá Mundo!";</p>
+	
+	<h2>Objetos</h2>
+	<p>var meuTexto = new String("Olá Mundo!");</p>
+
+	<h2>Métodos e Propriedades</h2>
+	<p>Ps: abre o console e o código pra ver.</p>
+	<ul> 
+		<li>length</li>
+		<li>replace()</li>
+		<li>indexOf()</li>
+		<li>lastIndexOf()</li>
+		<li>slice()</li>
+		<li>substring()</li>
+		<li>split()</li>
+		<li>toLowerCase()</li>
+		<li>toUpperCase()</li>
+		<li>valueOf()</li>
+	</ul>
+
+	<h2>Desafio(Nome formatado)</h2>
+	<p>Digite seu nome completo:</p>
+	<input type="text" name="nome" id = nome>
+	<button type="submit" id="btn">Formatar</button>
+
+	<h2>Desafio(texto com mais de 200 caracteres)</h2>
+	<p>Insira seu texto abaixo:</p>
+	<textarea cols="50" rows="10" id="textao"></textarea>
+	<button type="submit" id="btn2">Limitar</button>
+	<script>
+		var exemplo = "String de exemplo";
+		
+		console.log(exemplo);
+		console.log(exemplo.length);
+		console.log(exemplo.replace('e','E')); // troca a primeira ocorrencia, nao muda a variavel
+		console.log(exemplo.indexOf(" ")); // retorna a posição da primeira ocorrencia
+		console.log(exemplo.lastIndexOf(" ")); // retorna a posição da última ocorrencia
+		console.log(exemplo.slice(5,10)); // retorna um pedaço da string na posiçao desejada
+		console.log(exemplo.substring(10,5)); // igual ao slice, porem consegue entender a inversao dos index
+		console.log(exemplo.split(' ')); // retorna um array com a condiçao de quebra
+		console.log(exemplo.toUpperCase()); // transforma em maiúsculo
+		console.log(exemplo.toLowerCase()); // transforma em minúsculo
+
+		//Desafio 1 
+
+		$nome = document.querySelector("#nome");
+		$btn = document.querySelector("#btn");
+
+		$btn.addEventListener("click",function(){
+			var ultimoSobrenome = $nome.value.slice($nome.value.lastIndexOf(" "), $nome.value.length);
+			var restoNome = $nome.value.slice(0, $nome.value.lastIndexOf(" "));
+
+			alert("Nome formatado: "+ultimoSobrenome+", "+restoNome+".");
+		});
+
+		//Desafio 2
+
+		$textao = document.querySelector("#textao");
+		$btn2 = document.querySelector("#btn2");
+
+		$btn2.addEventListener("click",function(){
+			if($textao.value.length>200){
+				alert("Texto limitado: "+$textao.value.slice(0,200)+"...");
+			}
+			else{
+				alert("Teu texto tem menos de 200 caracteres");
+			}
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Tipos de input's</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Tipos de input:</h1>
+	<form action="#" method="POST">
+		<fieldset>
+			<legend>Dados Pessoais</legend>
+			
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" required> 												<!-- type="email"-->
+			<br>
+			
+			<label for="nDeFilhos">Número de filhos:</label>
+			<input type="number" min="0" max="1000" name="nDeFilhos" id="nDeFilhos" required> 			       <!-- type="number"-->
+			<br>
+			
+			<label for="dataNasc"> Data de nascimento:</label>
+			<input type="date" min="1900-01-01" max="2020-03-08" name="dataNasc" id="dataNasc" required> 		<!-- type="date" -->
+			<br>
+
+			<label for="hora">Hora de agora:</label>
+			<input type="time" name="hora" value="hora">                                                        <!-- type="time" -->
+
+			<p>Sexo:</p> <!-- botar o mesmo 'name' nos dois inputs para que a escolha seja única, porém com diferentes 'id'-->
+			<input type="radio" name="sexo" id="M">
+			<label for="M">Masculino</label>
+			<input type="radio" name="sexo" id="F">															   <!-- type="radio" -->
+			<label for="F">Feminino</label>
+			<br>
+			<br>
+			
+			<label>Estado</label>
+			<select name="estado" required> 																 <!-- select, option -->
+				<option value="0">Selecione</option>
+				<option value="PE">Pernambuco</option>
+				<option value="PB">Paraíba</option>
+				<option value="RN">Rio Grande do Norte</option>
+			</select>
+			<br>
+			
+			<label for="color">Cor favorita:</label>
+			<input type="color" name="color" value="color">													   <!-- type="color" -->
+			<br>
+			
+			<label for="nFavorito">Número Favorito:</label>                                                    <!-- type="range" -->
+			<br>
+			<input type="range" list="marcas" name="nFavorito" value="nFavorito">
+			<datalist id="marcas">
+			  <option value="0" label="0">
+			  <option value="10">
+			  <option value="20">
+			  <option value="30">
+			  <option value="40">
+			  <option value="50" label="5">
+			  <option value="60">
+			  <option value="70">
+			  <option value="80">
+			  <option value="90">
+			  <option value="100" label="10">
+			</datalist>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Áreas de interesse</legend>
+			<label><input type="checkbox" name="HTML" value="HTML">HTML</label> 							<!-- type="checkbox" -->
+			<label><input type="checkbox" name="CSS" value="CSS">CSS</label>
+			<label><input type="checkbox" name="JavaScript" value="JavaScript">JavaScript</label>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Observações</legend> 																	  <!-- area de texto -->
+			<textarea style="resize: none" name="administrador" cols="50" rows="4" disabled>Informações restritas ao administrador da página</textarea>
+			<textarea style="resize: none" name="contrato" cols="50" rows="4" readonly>Informações restritas aos acordos do contrato</textarea>
+			<textarea style="resize: none" name="obs" cols="50" rows="4" maxlength="200" placeholder="Observações do usuário(máx 200 caracteres)."></textarea>
+			<br>
+			
+			<label><input type="checkbox" name="acordo" value="acordo" required="">Declaro que li os termos do contrato</label>
+			</fieldset>
+		<br>
+			<input type="hidden" name="expira" value="2020-03-08"> 											  <!-- type="hidden" -->
+			<input type="submit" value="Enviar">															  <!-- type="submit" -->
+			<input type="button" value="button">															  <!-- type="button" -->
+			<input type="reset" value="Limpar">																   <!-- type="reset" -->
+	</form>
+</body>
+
+</html>

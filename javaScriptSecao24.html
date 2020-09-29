@@ -1,0 +1,133 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 24): Funções</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<script>
+		// Literal
+		function somar(n1,n2) {
+			return n1+n2;
+		}
+		var soma =somar(10,20);
+		console.log("Resultado:", soma);
+
+
+
+		somar.teste= "propriedade da função";
+		console.log(somar.teste);
+
+
+
+		var teste = function(str){ // Função anônima
+			console.log("teste", str);
+		};
+		teste("olá"); // Possível pois javascript eh funcional
+
+
+
+		var teste1 = function(f){ // Função anônima
+			f();
+		};
+		teste1(function(){
+			console.log("Função passada por parâmetro");
+		});
+
+		
+
+
+		console.log("----------------------"); // Aula Seguinte
+
+		var x=0; // escopo global
+		var y;
+		function mostrarDentro(){
+			var x = 10; // escopo local, não conflita com outra variável criada fora
+			var y = 20;
+			console.log("mostrar x dentro:", x);
+			console.log("mostrar y dentro:", y);
+		}
+		mostrarDentro();
+		console.log("mostrar x fora:", x);
+		console.log("mostrar y fora:", y);
+
+
+
+		console.log("----------------------"); // Aula Seguinte
+
+		(function IIFE(){ // Immediately-invoked function expression
+			
+			'use strict'; // não deixa criar variáveis sem a palavra reservada 'var'
+			 var isValid=0;
+			console.log("Função auto-executável");
+
+			function somar1(arr){
+				console.log(arguments); // tipo um array
+			}
+			somar1(10,20);
+		})();
+
+
+
+		//Aula Seguinte
+
+		function ativarMedia(){
+			function calcularMedia(){
+				var total = 0;
+				var qtd = arguments.length;
+				for(var i=0; i<qtd;i++){
+					total+= arguments[i];
+				}
+				return total / qtd;
+			}
+			var media1 = calcularMedia(2,3);
+			var media2 = calcularMedia(2,3,10,6);
+			console.log("Média 1:",media1);
+			console.log("Média 2:",media2);
+		}
+
+
+
+
+		// Aula Seguinte, desafio
+
+		function calcularIMC() {
+			var peso = parseFloat(prompt("Digite seu peso"));
+			var altura = parseFloat(prompt("Digite sua altura"));
+			var imc = peso / (altura**2);
+			if(imc<17){
+				alert(imc + " Muito abaixo do peso");
+			}
+			else if(imc< 18.5){
+				alert(imc + " Abaixo do peso");
+			}
+			else if(imc< 25){
+				alert(imc + " Peso normal");
+			}
+			else if(imc< 30){
+				alert(imc + " Acima do peso");
+			}
+			else if(imc< 35){
+				alert(imc + " Obesidade grau I");
+			}
+			else if(imc< 40){
+				alert(imc + " Obesidade grau II");
+			}
+			else if(imc>= 40){
+				alert(imc + " Obesidade grau III");
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Funções</h1>
+	<h2>Seção 23 era muito teoria básica</h2>
+	<button onclick="ativarMedia()">Fazer a média</button>
+	<p>                               </p>  <!-- preguiça de usar css -->
+	<button onclick="calcularIMC()">Calcular IMC</button>
+</body>
+
+</html>

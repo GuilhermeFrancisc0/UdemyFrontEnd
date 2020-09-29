@@ -1,0 +1,173 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Início Javascript(Seção 20)</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+	<style>
+		#output{
+			margin-top: 5px;
+			height: 465px;
+			width: 465px;
+			border: solid 1px red;
+		}
+		#display{
+			margin-top: 5px;
+			height: 16px;
+			width: 465px;
+			border: solid 1px blue;
+		}
+		#areaDisplay{
+			margin-top: 5px;
+			height: 16px;
+			width: 465px;
+			border: solid 1px green;
+		}
+		#displayS{
+			margin-top: 5px;
+			height: 16px;
+			width: 465px;
+			border: solid 1px orange;
+		}
+		#display2{
+			margin-top: 5px;
+			height: 16px;
+			width: 465px;
+			border: solid 1px purple;
+		}
+	</style>
+</head>
+<body>
+	<h1>Seção 20</h1>
+	<h2>Tabuada</h2>
+	<button onclick="mostrarTabuada()">Criar Tabuada</button>
+	<button onclick="limparTabuada()">Limpar Tabuada</button>
+	<div id="output"></div>
+
+	<h2>Exercício1</h2>
+	<button onclick="somar()">+</button>
+	<button onclick="subtrair()">-</button>
+	<button onclick="multiplicar()">*</button>
+	<button onclick="dividir()">/</button>
+	<div id="display"></div>
+	
+	<h2>Largura e Altura</h2>
+	<button onclick="area(largura, altura)">Mostrar a área</button>
+	<div id="areaDisplay"></div>
+	
+	<h2>Exercício1 simplificado</h2>
+	<button onclick="digitar()">Digite um número</button>
+	<button onclick="calcular('+')">+</button>
+	<button onclick="calcular('-')">-</button>
+	<button onclick="calcular('*')">*</button>
+	<button onclick="calcular('/')">/</button>
+	<div id="displayS"></div>
+
+	<h2>Área com alert ou display</h2>
+	<button onclick="digitar2()">Escreva os dois lados do retângulo</button>
+	<button onclick="mostrarAreaAlert()">Mostrar área no Alert</button>
+	<button onclick="mostrarAreaDisplay()">Mostrar área no Display</button>
+	<div id="display2"></div>
+	<script>
+		function mostrarTabuada(){
+			var output = document.querySelector("#output"); /* toda vez que precisar acessar via javascript o mundo html, utiliza-se o termo 'document', o termo 'querySelector' traz a referencia, do termo digitado, do mundo html para o script  */
+			var x = parseInt(prompt("Digite um número"));
+			var mensagem = ''; /* Criando uma variavel auxiliar para que pegue toda a informação do loop e depois mande pro browser, para que o browser não sobrecarregue com o loop*/
+			for(var i =0; i<=25; i++){
+				mensagem += x + '*' + i + '= ' + x*i + '<br>';
+			}
+			output.innerHTML = mensagem;
+		}
+		function limparTabuada(){
+			mensagem = '';
+			output.innerHTML = mensagem;
+		}
+
+		// Aula seguinte, exercicio
+		var display = document.querySelector("#display");
+		var x = parseFloat(prompt("Digite um número pro exercício1"));
+		display.innerHTML = x;
+		
+		function somar(){
+			var y = parseFloat(prompt("Digite um número para somar"));
+			x = x + y;
+			display.innerHTML = x;
+		}
+		function subtrair(){
+			var y = parseFloat(prompt("Digite um número para subtrair"));
+			x = x - y;
+			display.innerHTML = x;
+		}
+		function multiplicar(){
+			var y = parseFloat(prompt("Digite um número multiplicar"));
+			x = x * y;
+			display.innerHTML = x;
+		}
+		function dividir(){
+			var y = parseFloat(prompt("Digite um número dividir"));
+			x = x / y;
+			display.innerHTML = x;
+		}
+
+		// Aula seguinte
+		
+		var largura = parseFloat(prompt("Digite a largura"));
+		var altura = parseFloat(prompt("Digite a altura"));
+		function area(largura, altura){
+			var areaDisplay = document.querySelector("#areaDisplay");
+			var area = largura * altura;
+			areaDisplay.innerHTML = area;
+		}
+
+		// Aula seguinte, exercício
+		var z = 0;
+		function digitar(){
+			var displayS = document.querySelector("#displayS");
+			 z = parseFloat(prompt("Digite um número pro exercício1 Simplificado"));
+			displayS.innerHTML = z;
+		}
+		function calcular(a){
+			if (a=='+') {
+				var y = parseFloat(prompt("Digite um número para somar"));
+				z += y;
+			}
+			else if (a=='-') {
+				var y = parseFloat(prompt("Digite um número para subtrair"));
+				z -= y;
+			}
+			else if (a=='*') {
+				var y = parseFloat(prompt("Digite um número para multiplicarr"));
+				z *= y;
+			}
+			else if (a=='/') {
+				var y = parseFloat(prompt("Digite um número para dividir"));
+				z /= y;
+			}
+			displayS.innerHTML = z;
+		}
+
+		// Aula seguinte
+
+		var b = 0;
+		var c = 0;
+		function digitar2(){
+			b = parseFloat(prompt("Digite um lado do retângulo"));
+			c =	parseFloat(prompt("Digite outro lado do retângulo"));
+		}
+		function calcularAreaRetangulo(b, c){
+			return b * c;
+		}
+		function mostrarAreaAlert(){
+			alert("A área do retângulo é: " + calcularAreaRetangulo(b,c));
+		}
+		function mostrarAreaDisplay(){
+			var display2 = document.querySelector("#display2");
+			display2.innerHTML = calcularAreaRetangulo(b,c);
+		}
+	</script>
+</body>
+
+</html>

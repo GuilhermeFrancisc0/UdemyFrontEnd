@@ -1,0 +1,220 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 32): Arrays</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Arrays</h1>
+	<h2>Métodos e Propriedades</h2>
+	<ul>
+		<li>length</li>
+		<li>every()</li>
+		<li>some()</li>
+		<li>filter()</li>
+		<li>forEach()</li>
+		<li>indexOf()</li>
+		<li>lastIndexOf()</li>
+		<li>map()</li>
+		<li>concat()</li>
+		<li>join()</li>
+		<li>push()</li>
+		<li>pop()</li>
+		<li>unshift()</li>
+		<li>shift()</li>
+		<li>reduce()</li>
+		<li>reduceRight()</li>
+		<li>reverse()</li>
+		<li>slice()</li>
+		<li>splice()</li>
+		<li>toString()</li>
+	</ul>
+	<h2>Problema(Aluno reprovado nota 0)</h2>
+	
+	<h4>insira as notas do aluno separando por vírgula.EX: 8,7,9.5,6,6.5</h4>
+	
+	<input type="text" id="notas">
+	<button type="submit" id="btnMedia">Calcular média</button>
+	
+	<h2>Desafio paragráfo com 10 palavras</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	<script>
+		
+		var arr = ["casa",2,3,4,5,"sapato",20,"30"];
+		console.log("arr: ",arr);
+
+
+		var sohNumeros = arr.every(function(el){//O método every executa a função callback fornecida uma vez para cada elemento presente no array, até encontrar algum elemento em que a função retorne um valor false
+			return typeof el === 'number';
+		});
+		console.log("arr.every(): ",sohNumeros);
+		
+
+
+		var aoMenosUmNumeros = arr.some(function(el){// se um elemento do array retornar true, o some retornará true
+			return typeof el === 'number';
+		});
+		console.log("arr.some(): ",aoMenosUmNumeros);
+		
+
+
+		var arrNumeros = arr.filter(function(el,i,arr){ // filtra o que a funçao pediu
+			return typeof el === 'number';
+		})
+		console.log("arr.filter(): ",arrNumeros);
+		
+
+
+		console.log("arr.forEach():");
+		arr.forEach(function(el,i,arr){ // método for simplificado,para iteraçao do array
+			console.log("elemento: ",el," | indice: ",i," | array: ",arr.toString());
+		});
+
+
+
+		var posicaoString = arr.indexOf("sapato");
+		console.log('arr.indexOf("sapato"):',posicaoString);
+		
+
+
+		var posicaoString2 = arr.lastIndexOf(20); // procura de tras pra frente,quando passado a posiçao inicial
+		console.log('arr.lastIndexOf(20):',posicaoString2);
+		
+
+
+		var numerosMap = arrNumeros.map(function(el,i,arr){ // reduçao do for
+			return el * i;
+		});
+		console.log("numeros.map():",numerosMap);
+		
+
+
+		var arrayConcat = arr.concat(numerosMap,"alou"); // concatena os arrays
+		console.log("arr.concat(numerosMap):",arrayConcat);
+		
+
+
+		var arrayJoin = arrayConcat.join("-"); // transforma em string, com o elemento separador indicado
+		console.log('arrayConcat.join("-"):',arrayJoin);
+		
+
+
+		arr.push("push","push2"); // adiciona item e retorna o novo length
+		console.log('arr.push("push","push2"):',arr);
+		
+
+
+		var ultimoItemPop = arr.pop(); // remove o ultimo item e retorna esse item
+		console.log("arr.pop():",ultimoItemPop);
+		
+
+
+		arr.unshift("unshift","unshift2"); // semelhante ao push, so que adiciona no inicio
+		console.log('arr.unshift("unshift","unshift2")',arr);
+
+
+
+		var primeiroItemShift = arr.shift(); // semelhante ao pop, so que remove o primeiro
+		console.log("arr.shift():",primeiroItemShift);
+		
+
+
+		console.log("arrNumeros.reduce():",arrNumeros);
+		var somaNumerosReduce = arrNumeros.reduce(function(anterior,atual){// vai iterando acões com o elemento inicial e seu seguinte
+			console.log("anterior: ",anterior," | atual: ",atual);
+			return anterior + atual;
+		});
+		console.log(somaNumerosReduce);
+		//reduceRight faz o mesmo so que no sentido oposto
+
+
+
+		var arrayReverse = [1,2,3];
+		arrayReverse.reverse(); // reverte o array ,funçao destrutiva
+		console.log("arrayReverse.reverse():",arrayReverse);
+
+
+
+		console.log("arr.slice(2,5):",arr.slice(2,5));// seleciona parte indicada do array, nesse exemplo ]2,5]
+
+
+
+		arr.splice(2,1,'splice','splice2');// splice(indexInicial,qtdItensRemover,itensAdicionais...) e retorna os itens removidos
+		console.log("arr.splice(2,1,'splice','splice2')",arr);
+
+
+		//Problema
+
+		$stringNotas = document.querySelector("#notas");
+		$btnMedia = document.querySelector("#btnMedia");
+
+		$btnMedia.addEventListener("click",function(){
+			var arrayStringNotas = $stringNotas.value.split(",");
+			
+			var arrayStringNotasValidas = arrayStringNotas.every(function(el){ // verificando se ha alguma ocorrencia de nota invalida
+				if(el==0){
+					alert("Nota zero, Reprovado!");
+				}
+				else if(isNaN(el)){
+					alert("Nota inválida, não é número. Por favor digitar novamente!");
+				}
+				return !(el == 0 || isNaN(el));
+			});
+			
+			if(arrayStringNotasValidas){
+				var arrayNumberNotas = arrayStringNotas.map(function(el){ // varrendo o array e convertendo
+						return parseFloat(el);// notação arrow function : .map(el=>parseFloat(el))
+					});
+
+				var somaNotas = arrayNumberNotas.reduce(function(anterior,atual){// reduzindo o array com a soma de seus elementos com os sucessores
+					return anterior+atual;
+				})
+				var mediaNotas = somaNotas/arrayNumberNotas.length;
+				
+				if(mediaNotas>=7){
+					alert("Aprovado!\nA média do aluno foi: "+mediaNotas);
+				}
+				else{
+					alert("Reprovado!\nA média do aluno foi: "+mediaNotas);
+				}
+			}
+		});
+		
+		// Desafio
+
+		var $paragrafos = document.querySelectorAll("p");
+
+		for (var i =0; i<$paragrafos.length; i++) {
+			$paragrafos[i].innerHTML = formataParagrafo($paragrafos[i].innerHTML);
+		}
+		function formataParagrafo(paragrafo){
+			var arrPalavras = paragrafo.split(" ");
+			if (arrPalavras.length > 10){
+				return arrPalavras.slice(0,10).join(" ") + "...";
+			}
+			return paragrafo;
+		}
+
+		// Desafio2
+
+		for (var i =0; i<$paragrafos.length; i++) {
+			$paragrafos[i].classList.add("Javascript");
+		}
+	</script>
+</body>
+
+</html>

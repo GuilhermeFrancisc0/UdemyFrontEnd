@@ -1,0 +1,33 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>box sizing e float</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	div{
+		background-color: orange;
+		width: 300px;
+		height: 150px;
+		margin: 15px;
+	}
+	#div2{
+		padding: 50px; /*padding aumentando o tamanho original da box*/
+	}
+	#div3{
+		padding: 50px; 
+		box-sizing: border-box;/*mantem o tamanho da box mesmo com a ação do padding;*/
+	}
+
+</style>
+<body>
+	<div id="div1">teste box</div>
+	<div id="div2">teste box</div>
+	<div id="div3">teste box</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Estrutura Base</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	.gridContainer{
+		width: 90%;
+		background-color: #ccc;
+		margin: 30px auto;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(auto-fit , minmax(100px, 1fr)); /*autofill cria colunas excedentes, enquanto que no autofit o item ocupa o espaço excedente nao criando colunas extras*/
+		grid-auto-rows: 100px 50px; /*cria linhas extras automaticamente*/
+	}
+	.gridItem{
+		background-color: orange;
+		padding: 15px;
+		font-family: sans-serif;
+	}
+</style>
+<body>
+	<h2>Grid Layout</h2>
+	<div class="gridContainer">
+		<div class="gridItem">1</div>
+		<div class="gridItem">2</div>
+		<div class="gridItem">3</div>
+		<div class="gridItem">4</div>
+		<div class="gridItem">5</div>
+		<div class="gridItem">6</div>
+		<div class="gridItem">7</div>
+		<div class="gridItem">8</div>
+		<div class="gridItem">9</div>
+		<div class="gridItem">10</div>
+		<div class="gridItem">11</div>
+		<div class="gridItem">12</div>
+	</div>
+</body>
+
+</html>

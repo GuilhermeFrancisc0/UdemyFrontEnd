@@ -1,0 +1,122 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Cores Gradiente-Radial</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	#grupo-cores{
+		padding: 15px;
+		background: url('original.png');
+		counter-reset: contador;
+	}
+	#grupo-cores div{
+		width: 80%;
+		height: 150px;
+		border: 10px solid rgba(0,0,0,.5);
+		margin: 20px auto;
+		padding: 15px;
+		counter-increment: contador;
+	}
+	#grupo-cores div:before{
+		content: '[' counter(contador) ']';
+	}
+	#grupo-cores div:nth-child(2){
+		background-color: blueviolet;
+		background-clip: content-box;
+	}
+	#grupo-cores div:nth-child(3){
+		background-color: rgb(50%,50%,0%);
+		background-clip: padding-box;	
+	}
+	#grupo-cores div:nth-child(4){
+		background-color: rgba(50%,50%,0%, .5);
+		background-clip: padding-box;	
+	}
+	#grupo-cores div:nth-child(5){
+		background-color: hsl(120deg,50%,50%); /* hsl(tom,saturação,luminosidade) */
+		background-clip: padding-box;
+	}
+	#grupo-cores div:nth-child(6){
+		background-color: hsla(120deg,50%,50%,.5); /* hsla(tom,saturação,luminosidade,transparencia) */
+		background-clip: padding-box;
+	}
+	#grupo-cores div:nth-child(7){
+		background-image: linear-gradient(to bottom right,blue,transparent), linear-gradient( to top,red, transparent);
+		background-clip: padding-box, border-box;	
+	}
+	#grupo-cores div:nth-child(8){
+		background-image:radial-gradient(red,blue);
+	}
+	#grupo-cores div:nth-child(9){
+		background-image: radial-gradient(circle,red,blue);
+	}
+	#grupo-cores div:nth-child(10){
+		background-image: radial-gradient(circle,red,blue,orange,green);
+	}
+	#grupo-cores div:nth-child(11){
+		background-image: radial-gradient(closest-side at 20% 50%,red,blue,orange,green);
+	}
+	#grupo-cores div:nth-child(12){
+		background-image: radial-gradient(farthest-side at 20% 50%,red,blue,orange,green);
+	}
+	#grupo-cores div:nth-child(13){
+		background-image: radial-gradient(closest-corner at 20% 50%,red,blue,orange,green);
+	}
+	#grupo-cores div:nth-child(14){
+		background-image: radial-gradient(farthest-corner at 20% 50%,red,blue,orange,green);
+	}
+	#grupo-cores div:nth-child(15){
+		background-image: repeating-linear-gradient(red 0%, yellow 10%, blue 25%);
+	}
+	#grupo-cores div:nth-child(16){
+		background-image: repeating-radial-gradient(red 0%, transparent, black 25%), linear-gradient(rgba(100%,0%,0%,.5), blue);
+		background-attachment: scroll, fixed;
+	}
+	#grupo-cores div:nth-child(17){
+		background-image: url('../imagens/caricaturaSilvioSantos.png') ,radial-gradient(closest-corner at 50% 25%, blue,transparent);
+		background-size: auto;
+		background-position: 50% center, center -30px;
+		background-repeat: no-repeat;
+	}
+</style>
+<body>
+	<h1>Backgrounds, cores e gradientes</h1>
+	<p>Names, hexadecimais, RGB, RGBa, HSL, HSLa</p>
+	<div id="grupo-cores">
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+		<div class="cores"><p>Famosa frase longa sem sentido estilo lorem ipsum, feita para encher texto com a falta de lógica, afim de ilustrar frases com demasiada estrutura e números de linhas</p></div>
+	</div>
+		
+</body>
+
+</html>

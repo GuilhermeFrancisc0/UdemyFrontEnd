@@ -1,0 +1,70 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>pseudo</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	input[type="checkbox"]{
+		width: 100px;
+		height: 100px;
+	}
+	input[type="checkbox"]:checked{
+		width: 50px;
+		height: 50px;
+	}
+	button:disabled{
+		background-color: blue;
+	}
+	p{
+		color: red;
+	}
+	p:empty:before{
+		content: "paragrafo vazio"
+	}
+	input[type="text"]:focus{
+		background-color: #ccc;
+	}
+	input[type="text"]:read-only{
+		background-color: yellow;
+	}
+	a:focus,a:hover, div:focus{
+		background-color: red;
+	}
+	input::placeholder{
+		color: red;
+	}
+</style>
+<body>
+	<label><input type="checkbox" value="sim">Aceito o contrato</label>
+	<br>
+	<button>vai</button>
+	<button disabled>volta</button>
+	<br>
+	<p>paragrafo 1</p>
+	<p> </p>
+	<p></p>
+	<br>
+	<input type="text">
+	<input type="text" value="valor inicial">
+	<input type="text" value="valor inicial" readonly>
+	<input type="text" value="valor inicial" disabled>
+	<input type="text" placeholder="valor do placeholder">
+	<br>
+	<ul>
+		<li><a href="#">Link falso</a></li>
+		<li><a href="#">Link falso</a></li>
+		<li><a href="#">Link falso</a></li>
+		<li><a href="#">Link falso</a></li>
+	</ul>
+	<br>
+	<div tabindex="1">div 1</div><!-- receber o tab -->
+	<div tabindex="2">div 2</div>
+	<div tabindex="3">div 3</div>
+</body>
+
+</html>

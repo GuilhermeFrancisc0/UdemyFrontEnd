@@ -1,0 +1,52 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 30): Number</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Number</h1>
+	<h2>Literais</h2>
+	<p>var meuNum = 123;</p>
+	<h2>Objetos</h2>
+	<p>var meuNum = new Number("123");</p>
+	<h2>Métodos e propriedades</h2>
+	<ul>
+		<li>MAX_VALUE</li>
+		<li>MIN_VALUE</li>
+		<li>toFixed()</li>
+		<li>toPrecision()</li>
+		<li>toString()</li>
+		<li>toExponential()</li>
+	</ul>
+
+	<h2>Desafio(media com limitaçao de 2 digitos)</h2>
+	<p>"Desafio" kkkkk</p>
+	<button id="btn">digitar os números</button>
+	<script>
+		var n = new Number("103.324354");
+		console.log(n);
+		console.log(Number.MAX_VALUE); // o maximo valor que o javascript suporta
+		console.log(Number.MIN_VALUE); // o minimo valor que o javascript suporta
+		console.log(n.toFixed(2)); // retorna o numero com o numero de casas decimais indicado
+		console.log(n.toPrecision(4)); // retorna o numero com os digitos limitados
+		console.log(n.toString(16)); // convertendo na base indicada
+		console.log(n.toExponential()); // converte para notação cientifica
+
+		//Desafio
+
+		var $btn = document.querySelector("#btn");
+		$btn.addEventListener("click",function(){
+			var n1 = parseFloat(prompt("digite o primeiro número"));
+			var n2 = parseFloat(prompt("digite o segundo número"));
+			var media = ((n1+n2)/2).toFixed(2);
+			alert("Média com 2 digitos limitados: "+media);
+		});
+	</script>
+</body>
+
+</html>

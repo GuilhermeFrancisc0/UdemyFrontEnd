@@ -1,0 +1,236 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Flexbox</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	
+	.flexbox{
+		margin-bottom: 15px;
+		height: 250px;
+		border: 1px solid red;
+		display: flex; /* transforma em container(recipiente) e seus filhos em itens*/
+	}
+	.flexbox div{
+		background-color: orange;
+		width: 130px;
+		margin: 15px;
+	}
+	
+	.flexbox:nth-child(4){
+		flex-direction: row; /*row eh o padrao*/ 
+		flex-wrap: wrap; /* comando para quebrar linha se o elemento filho exceder o tamanho do pai*/
+		/* atalho para os dois comandos: flex-flow*/
+	}
+	
+	.flexbox:nth-child(5){
+		justify-content: space-between; /*distribuição dos elementos na horizontal*/
+	}
+	.flexbox:nth-child(5) div{
+		width: 40px;
+	}
+
+	.flexbox:nth-child(6){
+		align-items: center; /*distribuição de elementos na vertical*/
+		justify-content: center;
+	}
+
+	.flexbox:nth-child(7){
+		align-items: baseline; /* alinhar na base do elemento*/
+		justify-content: center;
+	}
+	
+	.flexbox:nth-child(8){
+		justify-content: center;
+		flex-wrap: wrap;
+		align-content: stretch; /* so faz sentido com o flex-wrap: wrap */
+	}
+	.flexbox:nth-child(8) div{
+		width: 100px;
+	}
+
+	.flexbox:nth-child(9){
+		justify-content: center;
+		align-items: center;
+	}
+	.flexbox:nth-child(9) div{
+		background-color: yellow;
+		flex-basis: 50px;
+		height: 50px;
+	}
+
+	.flexbox:nth-child(10){
+		justify-content: center;
+		align-items: center;
+	}
+	.flexbox:nth-child(10) div{
+		background-color: yellow;
+		flex-basis: 50px; /* tipo uma width por enquanto*/
+		height: 50px;
+	}
+	.flexbox:nth-child(10) div:nth-child(2){
+		flex-grow: 3; /* media ponderada do espaço restante entre os itens para aumenta-los*/
+	}
+	.flexbox:nth-child(10) div:nth-child(4){
+		flex-grow: 1;
+	}
+
+	
+	.flexbox:nth-child(11) div{
+		background-color: yellow;
+		flex-basis: 200px; 
+		height: 50px;
+		margin: 5px;
+	}
+	.flexbox:nth-child(11) div:nth-child(2){
+		flex-shrink: 4; /* media ponderada do espaço entre os itens para diminui-los*/
+	}
+	.flexbox:nth-child(11) div:nth-child(4){
+		flex-shrink: 3;
+	}
+
+	.flexbox:nth-child(12) div{
+		background-color: yellow;
+		flex-basis: 200px; 
+		height: 50px;
+		margin: 5px;
+	}
+	.flexbox:nth-child(12) div:nth-child(2){
+		flex: 2 3 10px; /* flex: grow shrink basis;*/
+	}
+	.flexbox:nth-child(12) div:nth-child(4){
+		flex: 3 4 40px;
+	}
+
+	.flexbox:nth-child(13) div:nth-child(2){
+		order: 1;
+	}
+	.flexbox:nth-child(13) div:nth-child(4){
+		order: 3;
+	}
+	.flexbox:nth-child(13) div:nth-child(1){
+		order: 4;
+	}
+
+	.flexbox:nth-child(14){
+		align-items: flex-start;
+	}
+	.flexbox:nth-child(14) div:nth-child(1){
+		align-self: flex-end; /* alinha o proprio elemento*/
+	}
+	.flexbox:nth-child(14) div:nth-child(2){
+		align-self: center;
+	}
+	.flexbox:nth-child(14) div:nth-child(3){
+		align-self: flex-start;
+	}
+	.flexbox:nth-child(14) div:nth-child(4){
+		align-self: stretch;
+	}
+
+	.flexbox:nth-child(15){
+		justify-content: center;
+		align-items: flex-end;
+		flex-direction: column; /* inverte o sentido dos eixos q estavm em relaçao ao row */
+		height: 500px;
+	}
+	.flexbox:nth-child(15) div{
+		flex-basis: 60px;
+	}
+</style>
+<body>
+	<h2>Display Flex</h2>
+	<p>Acomodar ou distribuir elementos de modo fácil</p>
+	<p>Ajuda a centralizar na vertical</p>
+	
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+	
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+	
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2" style="font-size: 4em">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+		
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>	
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>	
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>	
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+
+	<div class="flexbox">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+	</div>
+</body>
+
+</html>

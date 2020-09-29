@@ -1,0 +1,100 @@
+body{
+	font-family: arial, sans-serif;
+	background-color: #ccc;
+	margin: 0;
+}
+.hero{
+	background-image: url(../imagens/bg-3.jpg); /* '..' voltou um nível da raiz para poder acessar a pasta imagens */
+	height: 500px;
+	background-position: right center;
+	background-size: cover;
+	border-top: 1px solid transparent;
+}
+.hero-content{
+	text-align: center;
+	color: white;
+	margin-top: 150px; 
+}
+.hero-content h1{
+	text-transform: uppercase;
+	font-size: 46px;
+	text-shadow: 3px 3px 2px #333 ;/* 1° valor:deslocamento horizontal; 2° valor:deslocamento vertical; 3° valor: número que indica o esfumaçamento(blurry); 4° valor: cor da sombra;*/
+}
+.hero-content p{
+	background-color: rgba(0,0,0,0.8);
+	display: inline-block;
+	padding: 10px;
+	border-bottom: 2px solid white;
+}
+.hero nav li{
+	display:inline-block;
+	list-style: none;
+	border: solid 1px white;
+	margin-left: 15px;
+}
+.hero nav ul{
+	text-align: right;
+	margin: 25px 15px 0 0;
+}
+.hero nav a{
+	display: block;
+	background: rgba(0,0,0,0.3);/* rgb normal adicionando um tom transparente no ultimo digito, representado pelo'a' de 0 a´té 1*/
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: 2px;
+}
+.hero nav a:hover{
+	background: rgba(0,0,0,0.5);
+}
+main{
+	width: 80%;
+	margin: auto;
+}
+.content-section{
+	background-color: white;
+	padding: 15px;
+	margin-top: 15px;
+	overflow: auto;
+}
+.card{
+	width: 32%;
+	float: left;
+	box-sizing: border-box;
+}
+.card-1,.card-2{
+	margin-right: 2%;
+}
+.card img{
+	width: 100%;
+	display: block;
+}
+.card p{
+	background-color: #393535;
+	color: white;
+	padding: 15px;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.content-header{
+	border-bottom: solid 2px #ccc;
+	padding: 10px;
+	background-color: #eee;
+}
+.content-header h2{
+	margin: 0;
+}
+.rodape{
+ 	height:80px;
+ 	color: white;
+ 	font-size: 14px;
+ 	text-align: center;
+ 	text-shadow: 2px 2px 2px black;
+ 	background-color: #6b6c68;
+ 	line-height: 80px; 
+}
+
+

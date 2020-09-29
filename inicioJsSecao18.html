@@ -1,0 +1,160 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Início Javascript(Seção 18)</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<body>
+	<h1>Lógica de programação com Javascript</h1>
+</body>
+	<script>
+		alert("Hello World!"); /*pop out na tela*/
+		var nome = prompt("Qual seu nome?"); /*recebe uma string do usuário*/
+		alert("bem vindo, " + nome);
+
+		// Aula seguinte
+
+		var x = parseFloat(prompt("Digite o primeiro número"));
+		var y = parseFloat(prompt("Digite o segundo número"));
+		var z = x + y;
+		alert("Somando: " + z);
+
+		// Aula seguinte, exercício
+
+		var x = parseInt(prompt("Digite um número"));
+		var y = parseInt(prompt("Digite outro número"));
+		alert("A subtração é: " + (x-y));
+		alert("A multiplicação é: " + (x*y));
+		alert("A divisão é: " + (x/y));
+		alert("A soma é: " + (x+y));
+
+		// Aula seguinte, exercício
+
+		var x = parseInt(prompt("Digite um número"));
+		var y = parseInt(prompt("Digite outro número"));
+		alert("A média é: " + ((x+y)/2));
+
+		// Aula seguinte, exercício
+
+		var x = parseInt(prompt("Digite um número"));
+		var y = parseInt(prompt("Digite outro número"));
+		alert("O resto da divisão de " + x + " por " + y +" é: " + (x%y));
+		alert("O número " + x + " elevado à " + y + " é: " + (x**y));
+
+		// Aula seguinte
+
+		/* Operações de Comparação
+			== 	Igualdade(valor)
+			!= 	Diferente(valor)
+			=== Igualdade(valor e tipo)
+			!== Diferente(Valor e tipo)
+			>	Maior
+			>=	Maior igual
+			<	Menor
+			<=	Menor igual
+
+			Obs:
+			= não é operador de comparação e sim de atribuição
+		*/
+		var x = parseInt(prompt("Digite um número"));
+		var y = parseInt(prompt("Digite outro número"));
+		var z = (x+y)/2;
+		alert("A média é maior que 5? " + (z>5));
+
+		// Aula seguinte
+
+		var x = parseInt(prompt("Digite um número"));
+		var y = parseInt(prompt("Digite outro número"));
+		var z = (x+y)/2;
+		if(z>=5){
+			alert("Aluno aprovado! :)");
+		}
+		else{
+			alert("Aluno reprovado! :(");
+		}	
+
+		// Aula seguinte, exercício
+
+		var x = parseInt(prompt("Jogador1 digite um número"));
+		var y = parseInt(prompt("Jogador2 digite um número"));
+		if(x===y){
+			alert("Empate!");
+		}
+		else{
+			var z = parseInt(Math.random() * 2); /*math.random eh um numero de 0 até quase 1, multiplicar por 2 para q fique metade digto 1 e metade  0*/
+			if(z==0){
+				if(x<y){
+					alert("vencedor jogador1");
+				}
+				else{
+					alert("vencedor jogador2");
+				}
+			}
+			else{
+				if(x>y){
+					alert("vencedor jogador1");
+				}
+				else{
+					alert("vencedor jogador2");
+				}
+			}
+		}
+
+		// Aula seguinte
+
+		var x = parseInt(prompt("Digite a primeira nota"));
+		var y = parseInt(prompt("Digite a segunda nota"));
+		if(x!=0 && y!=0 && ((x+y)/2) > 5){
+			alert("Aprovado! :)");
+		}
+		else{
+			alert("reprovado! :(")
+		}
+
+		// Aula seguinte, inverter a aula anterior
+
+		var x = parseInt(prompt("Digite a primeira nota"));
+		var y = parseInt(prompt("Digite a segunda nota"));
+		if(x==0 || y==0 || ((x+y)/2) <= 5){
+			alert("Aprovado! :)");
+		}
+		else{
+			alert("reprovado! :(")
+		}
+		/* Ordem de preferência dos operadores lógicos
+			1° !
+			2° &&
+			3° ||
+		*/
+
+		// Aula seguinte
+
+		var x = parseInt(prompt("Digite um número de 1 à 6"));
+		switch(x){
+			case 1:
+				alert("mensagem");
+				break;
+			case 2:
+				alert("diferente");
+				break;
+			case 3:
+				alert("para");
+				break;
+			case 4:
+				alert("cada");
+				break;
+			case 5:
+				alert("número");
+				break;
+			case 6:
+				alert("digitado");
+				break;
+			default:
+				alert("Escolha um número de 1 à 6");
+		}
+	</script>
+</html>

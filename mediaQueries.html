@@ -1,0 +1,66 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Media queries</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+	<meta name="viewport" content="width-device-width">
+</head>
+<style>
+	body{
+		background-color: yellow;
+		font-size: 16px;
+	}
+	.teste{
+		background-color: red;
+		width: 320px;
+		height: 50px;
+	}
+	.container{
+		background-color: white;
+		padding: 15px;
+		font-size: 24px;
+	}
+	.container div{
+		background-color: #ccc;
+		margin-bottom: 15px;
+		height: 150px;
+		font-size: 22px;
+	}
+	.clearfix:after{
+		content:' ';
+		display: block;
+		clear: both;
+	}
+	@media screen and (min-width: 682px){
+		body{
+			background-color: orange;
+		}
+		.container div{
+			width: calc(50% - 30px);
+			float: left;
+			margin: 10px;
+		}
+	}
+	@media screen and (min-height: 300px){
+		body{
+			background-color: green;
+		}
+	}
+</style>
+
+<body>
+	<h1>Exemplo de media queries</h1>
+	<p>Parágrafo qualquer</p>
+	<!--<div class="teste"></div>-->
+	<div class="container clearfix">
+		<div>div1</div>
+		<div>div2</div>
+
+	</div>
+</body>
+
+</html>

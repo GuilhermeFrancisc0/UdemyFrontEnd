@@ -1,0 +1,202 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 34): Temporizadores</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		.banner{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			box-shadow: 0 0 0 1000px rgba(0,0,0,.8);
+			display: none;
+		}
+		.banner__close{
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Temporizadores</h1>
+	<p>Funções em javascript que tem como objetivo serem executadas depois de um certo tempo.</p>
+	
+	<h2>Métodos</h2>
+	<p>Ps: Não são nativos da ECMAScript, ou seja não está disponível no nodejs e sim no browser(window).</p>
+	<ul>
+		<li>setTimeout(fn,ms)</li>
+		<li>setInterval(fn,ms)</li>
+		<li>clearTimeout(id)</li>
+		<li>clearInterval(id)</li>
+	</ul>
+
+	<div class="banner">
+		<h2>Problema(Banner irritante)</h2>
+		<button class="banner__close">x</button>
+	</div>
+
+	<h2>Desafio(Relogio hora atual)</h2>
+	<div id="displayRelogio"></div>
+
+	<h2>Desafio(Cronômetro)</h2>
+	<input type="text" id="cronometro">
+	<button id="iniciar">Iniciar</button>
+	<button id="pausar">Pausar</button>
+	<button id="parar">Parar</button>
+
+	<script>
+		var n =0;
+		
+		function somaUm(){
+			console.log("n,",++n);
+			if (n>=10) {
+				clearInterval(intervalo);
+			}
+		}
+		
+		var timeout = setTimeout(somaUm,1000); // adiciona um delay na função com os milisegundos informados
+
+		var intervalo = setInterval(somaUm,1000); // cria uma repetição da função no tempo informado em milisegundos
+
+		console.log("id do timeout:",timeout);
+		console.log("id do intervalo:",intervalo);
+
+		//Problema
+		(function(){
+			
+			var $banner = document.querySelector(".banner");
+			var $bannerBtn = document.querySelector(".banner__close");
+			
+			$bannerBtn.addEventListener("click",escondeBanner);
+
+			var intervaloEsconde = null;
+			function mostraBanner(){
+				$banner.style.display = "block";
+				intervaloEsconde = setTimeout(escondeBanner,3000);
+			}
+			function escondeBanner(){
+				$bannerBtn.removeEventListener("click",escondeBanner); // questoes de perfomance
+				$banner.parentNode.removeChild($banner); // excluindo o elemento
+
+				clearTimeout(intervaloEsconde); // limpando intervalo para evitar o codigo de remover o child que ja foi removido 
+			}
+
+			setTimeout(mostraBanner,5000);
+
+		})();
+
+		// Desafio 1
+
+		(function(){
+
+			var $displayRelogio = document.querySelector("#displayRelogio");
+
+			function atualizaRelogio(){
+				var horaAtual = new Date();
+				var hora = horaAtual.getHours();
+				var minutos = horaAtual.getMinutes();
+				var segundos = horaAtual.getSeconds();
+
+				hora = hora < 10 ? "0"+hora : hora;
+				minutos = minutos < 10 ? "0"+minutos : minutos;
+				segundos = segundos <10 ? "0"+segundos : segundos;
+
+				$displayRelogio.innerHTML ="hora certa: "+hora+":"+minutos+":"+segundos;
+			}
+
+			setInterval(atualizaRelogio,1000);
+
+		})();
+
+		// Desafio 2 
+
+		(function(){
+
+			var $cronometro = document.querySelector("#cronometro");
+			var $iniciar = document.querySelector("#iniciar");
+			var $pausar = document.querySelector("#pausar");
+			var $parar = document.querySelector("#parar");
+
+			$iniciar.addEventListener("click",iniciar);
+			$pausar.addEventListener("click",pausarCronometro);
+			$parar.addEventListener("click",pararCronometro);
+
+			var msClickIniciar = 0;
+			var msClickPausar = 0;
+			var intervaloC = null; // pegar a referencia do intervalo para usar na hora de pausar e parar
+			var tempoDecorrido = 0;
+			var rodando = false;
+	
+			function iniciar(){
+				
+				if(rodando){
+					return;
+				}
+				pararCronometro(); // para zerar os antigos iniciar's
+				msClickIniciar = Date.now();
+				iniciarCronometro();
+				rodando = true;
+			}
+			function iniciarCronometro(tempoDecorrido){
+				
+				var _ms = tempoDecorrido || 0;
+				
+				intervaloC = setInterval(function(){
+					var msAgora = Date.now();
+					var diferenca = msAgora - msClickIniciar;
+					$cronometro.value = formataMs(diferenca + _ms);
+				},100);
+			}
+			function pausarCronometro(){
+				if(!$cronometro.value) return; // para o pause nao iniciar a contagem
+				if(rodando){
+					rodando = false;
+					clearInterval(intervaloC);
+					msClickPausar = Date.now();
+					tempoDecorrido += (msClickPausar - msClickIniciar);
+					
+				}
+				else{
+					rodando = true;
+					msClickIniciar= Date.now();
+					iniciarCronometro(tempoDecorrido);
+				}
+			}
+			function pararCronometro(){
+				msClickPausar = 0;
+				msClickIniciar = 0;
+				tempoDecorrido = 0;
+				rodando = false;
+				clearInterval(intervaloC);
+				$cronometro.value = null;
+			}
+
+			const MINUTO = 60 * 1000;
+			function formataMs(ms){
+				if(ms<1000){
+					return ms;
+				}
+				else if(ms < MINUTO){
+					var segundo = parseInt(ms/1000);
+					var centesimo = ms - (segundo*1000);
+					return segundo + ":" + centesimo;
+				}
+				else{
+					var minuto = parseInt(ms /MINUTO);
+					var segundo = parseInt((ms/1000)- (minuto*60));
+					var centesimo = ms - (segundo*1000) - (minuto *MINUTO);
+					return minuto+":"+segundo + ":" + centesimo;
+				}
+			}
+		})();
+	</script>
+</body>
+
+</html>

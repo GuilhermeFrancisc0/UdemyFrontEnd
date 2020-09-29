@@ -1,0 +1,159 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Início Javascript(Seção 22)</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		.aula{
+			margin-top: 50px;
+		}
+		.display{
+			height: 16px;
+			width: 100vw;
+			margin-top: 5px;
+			border-bottom: 1px solid red;
+		}
+		#lista1, #lista3{
+			height: 108px;
+			width: 50vw;
+			margin-top: 5px;
+			border: 1px solid black;
+		}
+		#lista2{
+			height: 250px;
+			width: 50vw;
+			margin-top: 5px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h1>Seção 22</h1>
+	<h2>pulei a 21 pq eh so try catch izinho</h2>
+	
+	<div class="aula">
+		<button onclick="produtosDisponiveis()">Mostrar produtos disponíveis</button>
+		<div class="display" id="display1"></div>
+		<div class="lista" id="lista1"></div>
+	</div>
+	<div class="aula">
+		<button onclick="diaHoje()">Mostrar que dia é hoje</button>
+		<div class="display" id="display2"></div>
+	</div>
+	<div class="aula">
+		<button onclick="somaNumerosPares()">Mostrar a soma dos números pares</button>
+		<div class="display" id="display3"></div>
+	</div>
+	<div class="aula">
+		<button onclick="mostrarObjeto()">Mostrar objeto</button>
+		<div class="display" id="display4"></div>
+	</div>
+	<div class="aula">
+		<button onclick="mostrarNomePreco()">Mostrar nomes e preços dos objetos</button>
+		<div class="display" id="display5"></div>
+		<div class="lista" id="lista2"></div>
+	</div>
+	<div class="aula">
+		<button onclick="mostrarNomeEmail()">Mostrar nomes e emails</button>
+		<div class="lista" id="lista3"></div>
+	</div>
+	<script>
+		
+		function produtosDisponiveis() {
+			var produtos = new Array('caneta', 'lápis', 'tesoura', 'borracha', 'caderno', 'livro');// assinatura formal de array
+		// produtos.toString() : converteria o produto para string com as virgulas 
+			var display1 = document.querySelector("#display1");
+			display1.innerHTML = produtos;
+			var listaP = '';
+			for(var i=0; i<produtos.length;i++){
+				listaP += "produto "+(i+1)+": "+produtos[i]+"<br>";
+			}
+			var lista1=document.querySelector("#lista1");
+			lista1.innerHTML= listaP;
+		}
+		
+		//Aula Seguinte
+		
+		function diaHoje() {
+			var dias = new Array("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sabado");
+			var hoje = new Date();
+			var diaSemana = hoje.getDay();
+			var display2=document.querySelector("#display2");
+			display2.innerHTML= "Bem vindo, hoje é "+ dias[diaSemana];
+			}
+		
+		//Aula Seguinte
+
+		function somaNumerosPares() {
+			var arr = new Array(25, 30, 45, 28, 0, 12, 78, 64); 
+			var soma = 0;
+			for(var i =0; i<arr.length;i++){
+				if(arr[i] % 2==0){
+					soma+= arr[i];
+				}
+			}
+			var display3=document.querySelector("#display3");
+			display3.innerHTML= "A soma dos números pares é: "+ soma;
+		}
+
+		// Aula Seguinte 
+
+		function mostrarObjeto() {
+			var produto1 = new Object(); // assinatura formal de objeto
+			produto1.nome = "caneta";
+			produto1.preco = 2.2;
+			produto1.estoque = 10;
+			var display4=document.querySelector("#display4");
+			display4.innerHTML= JSON.stringify(produto1); // comando para printar a string resultante
+		}
+
+		// Aula seguinte
+
+		function mostrarNomePreco() {
+			var produtos = [ // Array de objetos
+				{"nome": "caneta", "preco": 2},
+				{"nome": "lapis", "preco": 1.2},
+				{"nome": "borracha", "preco": 0.5}
+			]
+			var msg = "";
+			for(var i=0; i<produtos.length;i++){
+				msg+= "<h3>Produto: "+produtos[i].nome+"</h3>"+"<p>Preço: R$"+produtos[i].preco+"</p>"
+			}
+			document.querySelector("#display5").innerHTML = JSON.stringify(produtos);
+			document.querySelector("#lista2").innerHTML = msg;
+		}
+
+		// Aula seguinte
+
+		function mostrarNomeEmail() {
+			var user1 = new Object();
+			user1.nome = "Maria";
+			user1.email = "maria@server.com";	
+
+			var user2 = new Object();
+			user2.nome = "João";
+			user2.email = "joao@server.com";
+
+			var user3 = new Object();
+			user3.nome = "José";
+			user3.email = "jose@server.com";
+
+			var users = new Array(user1, user2,user3);
+
+			var i=0;
+			var msg="";
+			while(users[i]){
+				msg += "Nome: "+users[i].nome+"<br>Email: "+users[i].email+"<br>";
+				i++;
+			}	
+			document.querySelector("#lista3").innerHTML = msg;
+		}
+	</script>
+</body>
+
+</html>

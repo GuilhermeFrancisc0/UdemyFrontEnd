@@ -1,0 +1,73 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Pratica30</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+	
+</head>
+<style>
+	body{
+		font-family: sans-serif;
+	}
+	a[target="_blank"]:after{
+		content:"º";
+		margin-left:5px;
+	}
+	a[href$=".pdf"]:before{
+		content:"§";
+		margin-left:5px;
+	}
+	.chk{
+		display: inline-block;
+		border-radius: 5px;
+		border: 2px solid #bbb;
+		background-color: #ddd;
+		width: 15px;
+		height: 15px;
+		margin-right: 10px;
+	}
+	label{
+		height: 15px;
+		display: inline-block;
+	}
+	input[type="checkbox"]{
+		width: 0px;
+		height: 1px;
+		overflow: hidden;
+		visibility: hidden;
+		display: inline-block;
+		margin: 0;
+	}
+	input[type="checkbox"]:checked + label .chk{
+		position: relative;
+		background-color: #555;
+	}
+	input[type="checkbox"]:checked + label .chk:before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0px;
+		bottom: 4px;
+		left: 4px;
+		right: 4px;
+		border: 2px solid white;
+		transform: rotate(45deg);
+		border-top-color: transparent;
+		border-left-color: transparent;
+		box-sizing: border-box;
+	}
+</style>
+<body>
+	<a href="http://google.com" target="_blank">Link externo</a>
+	<br>
+	<a href="qq.pdf">Download do PDF</a>
+	<hr>
+	<input type="checkbox" name="qq" id="chk">
+	<label for="chk"><span class="chk"></span>Li e aceito o contrato</label>
+</body>
+
+</html>

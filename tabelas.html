@@ -1,0 +1,103 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Tabelas</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	td{
+		border: 1px solid black;
+		padding: 10px;
+	}
+	table{
+		border-collapse: collapse;/*junta as celulas da tabela sem deixar espaço*/
+		background-color: beige;
+	}
+	th{
+		background-color: brown;
+		border:1px solid black;
+		padding: 15px;
+	}
+</style>
+<body>
+	<h1>Tabelas</h1>
+	<table>
+		<caption>Tabela normal</caption>
+		<tr>
+			<td>1a</td> <td>1b</td>
+		</tr>
+		<tr>
+			<td>2a</td> <td>2b</td>
+		</tr>
+		<tr>
+			<td>3a</td> <td>3b</td>
+		</tr>
+	</table>
+	<hr>
+	<table>
+		<caption>Tabela com colspan</caption>
+		<tr>
+			<td colspan="2">1a</td> 
+		</tr>
+		<tr>
+			<td>2a</td> <td>2b</td>
+		</tr>
+		<tr>
+			<td>3a</td> <td>3b</td>
+		</tr>
+	</table>
+	<hr>
+	<table>
+		<caption>Tabela com rowspan</caption>
+		<tr>
+			<td rowspan="2">1a</td> <td>1b</td>
+		</tr>
+		<tr>
+			 <td>2b</td>
+		</tr>
+		<tr>
+			<td>3a</td> <td>3b</td>
+		</tr>
+	</table>
+	<hr>
+	<table>
+		<caption>Tabela de preços de cursos</caption>	
+		<thead>
+			<tr>
+				<th>Área</th> <th>Curso</th> <th>Investimento</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<td colspan="3">Valores sujeitos a mudança sem aviso prévio</td>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td rowspan="3">Design</td> <td>InDisign</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				 <td>Fotoshop</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				 <td>Ilustrator</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				<td rowspan="4">Development</td> <td>HTML</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				 <td>CSS</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				 <td>Javascript</td> <td>1.000,00</td>
+			</tr>
+			<tr>
+				 <td>PHP</td> <td>1.000,00</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

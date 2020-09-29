@@ -1,0 +1,97 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 25): DOM</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<script>
+		console.log(document);
+		console.log(document.getElementsByTagName("p"));
+		console.log(document.getElementsByClassName("cparagrafos"));
+		console.log(document.querySelectorAll("#idmain"));
+
+		//document.getElementById("pmain").textContent = "Texto alterado"; // retorna o proprio elemento, pois id eh unico
+
+		/* 
+		document.getElementsByClassName("cparagrafos"); // retorna uma coleçao de objetos
+		document.getElementsByClassName("cparagrafos")[i].textContent = "Texto alterado"; // pois o class name sao varios elementos , ai tem q por o indice
+		*/
+
+		
+		//Aula seguinte
+
+		
+		/*
+		document.getElementsByTagName("p"); // retorna uma coleção, NodeList
+		
+		Ps: quando tiver 'Elements' no plural retornará coleção, enquanto que 'Element' retornará o elemento específico
+		*/
+		
+		// document.querySelector("#idmain"); // referência direto ao objeto
+		// document.querySelectorAll("#idmain h2"); // NodeList
+
+		
+		// Aula Seguinte
+
+		
+		// document.querySelector("h1").textContent = "paragráfo alterado via javascript"; // isso só rodará se a tag for carregada antes do script, que não é o caso de agora
+	</script>
+</head>
+<body>
+	<h1>DOM</h1>
+
+	<main class="cmain" id="idmain">
+		<h2>Subtítulo</h2>
+		<p id="pmain" class="pmain">Mais uma daquelas frases lorem ipsum so para preencher os paragráfos com palavras aleatórias</p>
+	</main>
+
+	<section class="csection" id="idsection">
+		<h3>Subtítulo</h3>
+		<p class="cparagrafos">Mais uma daquelas frases lorem ipsum so para preencher os paragráfos com palavras aleatórias</p>
+		<p class="cparagrafos">Mais uma daquelas frases lorem ipsum so para preencher os paragráfos com palavras aleatórias</p>
+	</section>
+	
+	<hr>
+	
+	<h2>Aula Seguinte</h2>
+	<div id="msg"></div>
+	<div id="msg2"></div>
+	<input type="text" id="txtNome" value="Digite um nome">
+	<button onclick="escreve()">Aperte</button>
+	<div id="msg3"></div>
+
+	<hr>
+	
+	<h2>Aula Seguinte</h2>
+	<input type="text" id="txtNome2" value="nome2" disabled>
+
+	
+	<script>
+		(function(){
+			var nome = prompt("Qual seu nome");
+			document.querySelector("#msg").textContent = "Bem vindo, "+nome+"!"; // Texto puro
+			document.querySelector("#msg2").innerHTML = "Bem vindo, " + "<b>"+nome+"</b>!"; // Mostra as tags HTML
+		})();
+	
+		// Aula Seguinte
+		
+		function escreve(){
+			var txtNome = document.querySelector("#txtNome").value;// .value recupera o valor de um campo do formulário
+			
+			document.querySelector("#msg3").innerHTML ="Bem vindo, "+txtNome+"!";
+		}
+
+		// Aula Seguinte
+		
+		var $txtNome2 = document.querySelector("#txtNome2"); // $ padrão de nomeaçao do DOM, para pegar a referencia
+		var nome = "Guilherme";
+		var sobrenome = "Francisco";
+		$txtNome2.value = nome+" "+sobrenome+"!"; // .value para setar valor
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 27): Eventos(problemas)</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		form{
+			padding: 5px;
+			border: 1px solid purple;
+			width: 50vw;
+		}
+		.done {
+			text-decoration: line-through;
+			color: #555;
+		}
+	</style>
+</head>
+<body>
+	<h1>Problemas</h1>
+	<div class="aulaSeguinte">
+		<form>
+			<label for="nome">Digite seu nome</label>
+			<input type="text" id="nome" name="nome">
+			<br>
+			<label for="senha">Digite sua senha</label>
+			<input type="password" id="senha" name="senha">
+			<br>
+			<button id="button">Enviar!</button>
+		</form>
+	</div>
+	<div class="aulaSeguinte">
+		<h3>Aula Seguinte</h3>
+		<form id="form2" action="#" method="POST">
+			<label for="nome2">Digite seu nome2</label>
+			<input type="text" id="nome2" name="nome2">
+			<br>
+			<label for="senha2">Digite sua senha2</label>
+			<input type="password" id="senha2" name="senha2">
+			<br>
+			<button type="submit" id="button2">Enviar2!</button>
+		</form>
+	</div>
+	<div class="aulaSeguinte">
+		<h3>Aula Seguinte</h3>
+			<textarea id="textarea" cols="50" rows="10" maxlength="100"></textarea>
+			<p id="restamContainer" style="display: none;">Restam <span id="restam"></span> caracteres</p>
+		</form>
+	</div>
+	<div class="aulaSeguinte">
+		<h3>Aula Seguinte</h3>
+		<form id="form3" action="#">
+			<textarea cols="30" rows="10" readonly>Contrato de serviços prestados</textarea>
+			<br>
+			<label>
+				<input type="checkbox" id="checkbox" checked> li e aceito os termos do contrato
+			</label>
+			<br>
+			<input type="submit" value="Continuar" id="btn">
+		</form>
+	</div>
+	<div class="aulaSeguinte">
+		<h3>Aula Seguinte</h3>
+		<button class="botoes">botão 1</button>
+		<button class="botoes">botão 2</button>
+		<button class="botoes">botão 3</button>
+	</div>
+	<div class="aulaSeguinte">
+		<h3>Aula Seguinte</h3>
+		<input type="text" id="txtTask">
+		<button id="botaoCadastro">Cadastrar tarefa</button>
+		<p>Aperte nas tarefas para marcar como feitas ou excluir</p>
+		<ul>
+			<li>Estudar Javascript - DOM</li>
+			<li>Estudar eventos em Javascript</li>
+			<li>terminar o curso logo</li>
+		</ul>
+	</div>		
+	<script>
+		var $nome = document.querySelector("#nome");
+		var $senha = document.querySelector("#senha");
+		var $button = document.querySelector("#button");
+		$button.addEventListener("click",function(evt) {
+			alert("nome: "+$nome.value+" senha: "+ $senha.value);
+			if($nome.value === "" || !$senha.value){ // string vazia eh considerada falsa pro boolean
+				alert("Preencha todos os campos");
+			}
+			else{
+				alert("Campos preenchidos");
+			}
+		});	
+				
+		// Aula seguinte
+
+		var $form2 = document.querySelector("#form2");
+		var $nome2 = document.querySelector("#nome2");
+		var $senha2 = document.querySelector("#senha2");
+		var $button2 = document.querySelector("#button2");
+		$form2.addEventListener("submit",function(evt) {
+			if($nome2.value === "" || !$senha2.value){
+				alert("prencha todos os campos2");
+				evt.preventDefault(); // previne o comportamento padrão(enviar formulário)
+			}
+			else{
+				alert("campos2 Enviado!");
+			}
+		});
+
+		// Aula seguinte
+
+		var $textarea = document.querySelector("#textarea");
+		/*
+		$textarea.addEventListener("keypress", keypress); // so aciona quando digita algum caracter
+		$textarea.addEventListener("keyup", keyup); // aciona quando uma tecla do teclado for solta
+		$textarea.addEventListener("keydown", keydown); // aciona quando uma tecla do teclado for pressionada
+		$textarea.addEventListener("input", input); // melhor versao, pois pega sem pressionar o teclado
+		
+		function keypress(e){
+			console.log("keypress",this.value);
+		}
+		function keyup(e){
+			console.log("keyup",this.value);
+		}
+		function keydown(e){
+			console.log("keydown",this.value);
+		}
+		function input(e){
+			console.log("input",this.value);
+		}
+		*/
+		var $restam = document.querySelector("#restam");
+		var $restamContainer = document.querySelector("#restamContainer");
+		
+		var maxima = $textarea.maxLength;
+		$restam.textContent = maxima;
+		
+		$textarea.addEventListener("input", checkLength);
+		
+		$restamContainer.style.display = "block"; // importante ferramenta para mudar estado do elemento HTML
+		function checkLength(e){
+			var numeroCaracteres = this.value.length;
+			$restam.textContent = maxima - numeroCaracteres;
+		}
+
+		// Aula seguinte
+
+		var $btn = document.querySelector("#btn");
+		var $checkbox = document.querySelector("#checkbox");
+		
+		$btn.disabled = !$checkbox.checked;
+		
+		$checkbox.addEventListener("change", function(){
+			$btn.disabled = !this.checked;
+		});
+
+		// Aula seguinte
+
+		var $botoes = document.querySelectorAll(".botoes");
+		var i = 0;
+		while($botoes[i]){
+			$botoes[i].addEventListener("click",function(){
+				alert(this.textContent);
+			});
+			i ++;
+		}
+
+		// Aula seguinte
+
+		var $txtTask = document.querySelector("#txtTask");
+		var $ul = document.querySelector("ul");
+		var $botaoCadastro = document.querySelector("#botaoCadastro");
+		
+		/* Antigo addtask, pois utiliza o innerHTML que esta em desuso
+		function addTask(){ 
+			var task = "<li>" + $txtTask.value + "</li>"; // adicionar com as tags para interpretar como HTML
+			$ul.innerHTML += task; // adicinando mais um sem sobrescreve-lo
+
+			$txtTask.value = ""; // limpando a string após o cadastro
+			$txtTask.focus(); // botando o cursor de volta ao input após p cadastro
+		}
+		*/
+		$botaoCadastro.addEventListener("click",addTask)
+		// *
+		$txtTask.addEventListener("keyup",function(e){ // adicionar a tarefa com a tecla 'enter'
+			if (e.keyCode == 13) { // 13 eh o codigo da tecla 'enter'
+				addTask();
+			}
+		});
+		// *
+		var $lis = $ul.querySelectorAll("li");
+		for (var i = 0; i < $lis.length; i++) {
+			//$lis[i].addEventListener("click",toogleDone); sobrescrito,adicionado na função em baixo
+			addEvent($lis[i]);
+		}
+		function toogleDone(){
+			this.classList.toggle("done"); // classList verifica a classe do objeto, toggle(inversao) se tiver a classe ele remove, se não ele adiciona
+			removeTask(this);
+		}
+		// *
+		function addTask(){ 
+			var li = document.createElement("li"); // criando um novo elemento no DOM
+			var text = document.createTextNode($txtTask.value); // criando texto temporario para depois atrelar num elemento do DOM
+			li.appendChild(text); // adicionando filho
+			$ul.appendChild(li);
+			
+			$txtTask.value = ""; // limpando a string após o cadastro
+			$txtTask.focus(); // botando o cursor de volta ao input após p cadastro
+
+			addEvent(li);
+		}
+		// *
+		function addEvent(li){
+			li.addEventListener("click",toogleDone);
+		}
+		// *
+		function removeTask(li){
+			if(confirm("deseja realmente remover a tarefa \n"+li.textContent+" ?")){
+				li.parentNode.removeChild(li); // parentNode diz quem eh o pai do objeto, removechild remove o objeto filho em questao
+			}
+		}
+	</script>
+</body>
+
+</html>

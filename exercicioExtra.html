@@ -1,0 +1,262 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Exercício extra</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		#content{
+			background-color: #ccc;
+		}
+		.questao{
+			background-color: #eee;
+			border: black 2px solid;
+			margin: 5px;
+		}
+		button{
+			margin: 5px;
+		}
+		.output{
+			margin: 5px;
+			height: 16px;
+			width: auto;
+			border-bottom: solid 1px red;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Exercício extra aleatório da internet</h1>
+	<h2>Link do exercício <a href="http://professor.leonardomeirelles.com/wp/lista-de-exercicios-javascript/" target="_blank">Professor Leonardo Meirelles</a></h2>
+	<h3>Sim mané, eu que fiz o layout e tudo da página tlgd? Uhum guilherminho aqui francisco!</h3>
+	<div id="content">
+		
+		<div class="questao">
+			<h3>Questão 1</h3>
+			<p>- Calcule a média de diversas notas digitadas pelo usuário.</p>
+			<button onclick="digitarNotas()">Digite as notas</button>
+			<div class="output" id="output1"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 2</h3>
+			<p>- Faça um programa que entre com cinco números e imprima o quadrado de cada número.</p>
+			<button onclick="calcularQuadrados()">Digite os números</button>
+			<div class="output" id="output2"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 3</h3>
+			<p>- Peça ao usuário para digitar 5 números em uma caixa de texto. Verifique qual é o maior número e exiba-o.</p>
+			<p>
+			<label for="caixaTexto">Digite os números:</label>
+      		<input name="caixaTexto" id="caixaTexto" type="text">
+      		<input type="submit" value="enviar" onclick="enviarNumeros()">
+      		</p>
+      		<div class="output" id="output3"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 4</h3>
+			<p>- Peça ao usuário para digitar várias idades. Exiba quantas pessoas são maior de idade (18 anos) e quantas são menores.</p>
+			<button onclick="maioresIdade()">Digite as idades</button>
+			<div class="output" id="output4"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 5</h3>
+			<p>- Crie um programa que entre com os dados de altura e sexo de 5 pessoas. Imprima na tela quantas pessoas são do sexo masculino e quantas pessoas são do sexo feminino. Mostre também qual é a maior altura e se essa altura é de um homem ou uma mulher.</p>
+			<button onclick="dadosPessoais()">Digite os dados das pessoas</button>
+			<div class="output" id="output5"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 6</h3>
+			<p>- Peça ao usuário para digitar vários nomes. Exiba na tela todos os nomes digitados, porém de maneira invertida (do último para o primeiro).</p>
+			<button onclick="inverterNomes()">Digite os nomes</button>
+			<div class="output" id="output6"></div>
+		</div>
+		
+		<div class="questao">
+			<h3>Questão 7</h3>
+			<p>- Peça para o usuário digitar uma data. Exiba separadamente o dia, o mês e o ano. (Obs.: não necessita de laço de repetição)</p>
+			<button onclick="digitarData()">Digite a data</button>
+			<div class="output" id="output7"></div>
+		</div>
+
+		<script>
+			
+			// Questão 1
+
+			function digitarNotas() {
+				alert("Digite as notas separando com uma unidade de espaço. Ex: 2 3 7 5 9. Obs: não adicionar espaço no início e nem no fim da sequência.");
+				var stringNotas = prompt("Digite as notas");
+				var arrayNotas = stringNotas.split(' ');	
+				var soma = 0;
+				for(var i=0; i <= arrayNotas.length - 1; i++){
+					soma += parseFloat(arrayNotas[i]);
+				}
+				var media = soma / arrayNotas.length;
+				var output1 = document.querySelector("#output1");
+				output1.innerHTML = "A média é: " + media;	
+			}
+
+			// Questão 2 
+
+			function calcularQuadrados() {
+				do{
+				alert("Digite os 5(cinco) números separando com uma unidade de espaço. Ex: 2 3 7 5 9. Obs: não adicionar espaço no início e nem no fim da sequência.");
+				var stringNumeros = prompt("Digite os 5(cinco) números");
+				var arrayNumeros = stringNumeros.split(' ');
+				}while(arrayNumeros.length != 5); //Não sai do loop ate digitar 5 números
+				for(var i=0; i <= arrayNumeros.length - 1; i++){
+					arrayNumeros[i] = (parseFloat(arrayNumeros[i])) ** 2;
+				}
+				var output2 = document.querySelector("#output2");
+				output2.innerHTML = "Os quadrados dos números são: " + arrayNumeros;
+			}
+
+			// Questão 3
+
+			function enviarNumeros() {
+				var stringNumeros3 = document.querySelector("#caixaTexto");
+				stringNumeros3 = stringNumeros3.value; // transformando o valor do tipo input em valor para ser atribuido
+				var arrayNumeros3 = stringNumeros3.split(' ');
+				
+				if(arrayNumeros3.length != 5){ // sequência de número inválida, sem acontecer o código
+					alert("números inválidos, por favor digite novamente seguindo as normas da questão 1");
+				}
+				
+				else{ // sequência de número válida
+					for(var i=0; i <= arrayNumeros3.length - 1; i++){ //convertendo cada item do array de string para number
+						arrayNumeros3[i] = parseFloat(arrayNumeros3[i]);
+					}
+					while(arrayNumeros3.length > 1){ // dando splice ate sobrar 1 número
+						for(var i=0; i <= arrayNumeros3.length - 2; i++){
+							if(arrayNumeros3[i] < arrayNumeros3[i+1]){
+								arrayNumeros3.splice(i,1);
+							}
+							else{
+								arrayNumeros3.splice((i+1),1);
+							}					
+						}
+					}
+					var output3 = document.querySelector("#output3");
+					output3.innerHTML ="O maior número da sequência é: " + arrayNumeros3;
+				}
+			}
+			
+			// Questão 4
+
+			function maioresIdade() {
+				alert("Digite as idades separando com uma unidade de espaço. Ex: 2 3 7 5 9. Obs: não adicionar espaço no início e nem no fim da sequência.");
+				var stringIdades = prompt("Digite as idades");
+				var arrayIdades = stringIdades.split(' ');
+				var maiores = [];
+				var menores = [];
+				for(var i=0; i <= arrayIdades.length - 1; i++){ 
+					arrayIdades[i] = parseFloat(arrayIdades[i]);
+					if(arrayIdades[i] >= 18){
+						maiores.push(arrayIdades[i]);
+					}
+					else{
+						menores.push(arrayIdades[i]);
+					}
+				}
+				var output4 = document.querySelector("#output4");
+					output4.innerHTML = maiores.length + " maior(es) de idade: " + maiores + " e " + menores.length + " menor(es) de idade: " + menores;
+			}
+
+			// Questão 5 // da ctrlc ctrlv disso ai 1.2-F 1.3-F 1.4-M 1.5-F 1.6-M
+
+			function dadosPessoais() { // Ps:esse deu trabalho... linha 176 destaque.... 2hrs nisso 
+				do{
+					alert("Digite as alturas e os sexos das 5(cinco) pessoas separando com uma unidade de espaço, obedecendo a esse formato Ex: 1.70-M 1.90-M 1.75-F 1.65-F 1.50-F. Sendo a altura em metros e o sexo F(feminino) e M(masculino). Obs: não adicionar espaço no início e nem no fim da sequência.");
+					var stringDados = prompt("Digite os dados das pessoas");
+					var arrayDados = stringDados.replace(/ /g, '-').split('-');// UMA HORA PROCURANDO ISSO...... // trocando todos os espaços em branco(' ') por hífen('-'), para o split transformar num array todas as partículas
+					if (arrayDados.length !=10) {
+						alert("Por favor digite novamente seguindo as normas");
+					}
+				}while(arrayDados.length !=10);
+				var alturas = [];
+				var sexos = [];
+				var qtdM = 0;
+				var qtdF = 0;
+				for(var i=0; i <= arrayDados.length - 1; i++){ 
+					if(i%2 == 0){ // preenchendo o array alturas com os índices pares do arrayDados, já que na hora do split todos eles são alturas
+						alturas.push(arrayDados[i]);
+					}
+					else{ // preenchendo o array sexos com os ímpares
+						sexos.push(arrayDados[i]);
+						if( arrayDados[i] == 'M'){
+							qtdM ++;
+						}
+						else{
+							qtdF ++;
+						}
+					}
+				}
+				var alturaMaior = []; // Criando array para levar splice ate reduzir para um
+				for(var i=0; i <= alturas.length - 1; i++){ //transformando o alturas em float e preenchendo o alturaMaior
+					alturas[i] = parseFloat(alturas[i]);
+					alturaMaior.push(alturas[i]);
+				}
+				while(alturaMaior.length > 1){ // dando splice ate reduzir na maior altura
+					for(var i=0; i <= alturaMaior.length - 2; i++){
+						if(alturaMaior[i] < alturaMaior[i+1]){ // se o consecutivo for maior, splice no atual
+							alturaMaior.splice(i,1);
+						}
+						else{ // se não splice no consecutivo
+							alturaMaior.splice((i+1),1);
+						}					
+					}
+				}
+				for(var i=0; i <= alturas.length - 1; i++){ // for só para achar o índice correspondente do array alturas
+					if(alturas[i] == alturaMaior[0]){
+						var sexoPessoaMaior = i; // variável criada para ser utilizada em outro array(sexos[]), para achar o tipo correspondente
+					}
+				}	
+				var output5 = document.querySelector("#output5");
+				output5.innerHTML = "São "+qtdM+" do sexo masculino e "+qtdF+" do sexo feminino, sendo a maior altura: "+ alturaMaior + " metros, do sexo " + sexos[sexoPessoaMaior];
+			}
+
+			// Questão 6
+
+			function inverterNomes() {
+				alert("Digite os nomes seguidos de espaço(' ') para separá-los");
+				var nomesInverter = prompt("digite os nomes");
+				var palavra = '';
+				var nomesInvertidos = '';
+				for(var i=0; i<= nomesInverter.length ;i++){
+					
+					palavra += nomesInverter.charAt(i);
+					
+					if(nomesInverter.charAt(i) == " " || i == nomesInverter.length){ // esse ou(||) fez demorar 30min kkk
+						for(var j = palavra.length - 1; j >= 0; j--){ // iterando o nomesInvertidos
+							nomesInvertidos += palavra.charAt(j); // incrementando sempre com a ultima posição
+						}
+						nomesInvertidos+= " "; // Depois do for botando o espaço para separar as palavras
+						palavra = ""; // resetando a palavra sempre q ver um espaço ou ser a última letra
+					}
+				}
+				var output6 = document.querySelector("#output6");
+				output6.innerHTML = nomesInvertidos;
+			}
+
+			// Questão 7
+
+			function digitarData() {
+				alert("Digite a data seguindo o formato pt-br e separando com '/'.Ex: 21/03/1943");
+				var data = prompt("Digite a data").split("/");
+				var output7 = document.querySelector("#output7");
+				output7.innerHTML = "Dia "+data[0]+" mês"+data[1]+" ano "+data[2];
+			}
+		</script>
+	</div>
+</body>
+			
+</html>

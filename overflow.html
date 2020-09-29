@@ -1,0 +1,51 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Overflow</title> <!-- serve para tratar conteudos que excedem um determinado elemento -->
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+	<style>
+		div{
+			padding: 2%;
+			margin: 2%;
+			border: 1px solid black;
+			width: 12%; 
+			float: left;
+			height: 100px;
+			font-family: sans-serif;
+			font-size: 18px;
+		}
+		.div1{
+			overflow: visible;/*conteudo que excede o documento é visualizado*/
+		}
+		.div2{
+			overflow: hidden;/*conteudo que excede o documento é escondido*/ 
+		}
+		.div3{
+			overflow: scroll;/*conteudo que excede o documento é adicionado com duas barras de scrollagem*/
+		}
+		.div4{
+			overflow: auto;/*conteudo que excede o documento é adicionado com duas barras de scrollagem se necessário*/
+		}
+	</style>
+</head>
+<body>
+	<h1>Overflow</h1>
+	<div class="div1">
+		<p>Lorem ipsum luctus semper dictum donec netus feugiat, vel aliquam metus vel primis neque mauris dolor, tempus mattis hendrerit dictumst at mauris. faucibus cubilia est lacinia senectus in blandit sollicitudin ultricies, nam dapibus ornare iaculis et taciti quisque adipiscing morbi, placerat aenean mauris dictumst sed pretium habitant. eleifend nisi varius fusce malesuada duis vitae suscipit aptent tortor etiam hac, mi nisi id sagittis consequat sociosqu luctus congue dolor arcu, erat magna nam volutpat primis blandit commodo integer nisl cras. semper quis cras quis curae nisi phasellus est nam sed fringilla mi ac, ipsum fringilla phasellus elementum et magna metus lacinia quisque arcu et.</p> 
+	</div>
+	<div class="div2">
+		<p>Magna convallis ut proin platea ullamcorper per praesent dictum dolor, massa mauris tristique volutpat placerat ultricies 	curabitur non, aenean convallis sodales eu purus nostra at interdum. elit massa commodo vitae et fusce dolor ante id, nibh id senectus vulputate mauris maecenas donec, sapien sollicitudin pretium sit donec fermentum tempus. cras venenatis nisi eu praesent dictumst etiam tempor, nunc gravida ut bibendum cursus ac volutpat, netus tempor viverra at suspendisse ut. maecenas tristique tellus himenaeos imperdiet ornare aenean quis nibh in enim luctus, nisi eleifend hendrerit primis praesent aenean taciti quis felis metus pulvinar lacus, diam velit imperdiet tristique nisl etiam maecenas tempus eros nec.</p>
+	</div> 
+	<div class="div3">
+		<p>Nam donec euismod donec himenaeos mollis metus adipiscing nisi auctor tincidunt sodales litora, aenean nostra proin elit fusce phasellus netus egestas volutpat habitant tortor. phasellus class vel leo class facilisis commodo pulvinar, lorem vestibulum litora lorem duis eu odio, quis massa donec ullamcorper maecenas dolor. accumsan lobortis tortor consequat ornare enim dui leo morbi lectus consectetur, aliquet suspendisse faucibus tempus euismod etiam pretium turpis accumsan, aliquet tempor dapibus tempor gravida mi condimentum consectetur mi. sagittis enim fusce pulvinar turpis nisi sociosqu habitasse, nisi praesent mattis per bibendum orci sem, aenean ornare scelerisque ut commodo arcu.</p>
+	</div> 
+	<div class="div4">
+		<p>Velit rhoncus est ultrices curabitur fermentum commodo justo elit etiam hendrerit quisque interdum, enim massa est fusce cras cursus tincidunt pellentesque nibh amet. diam egestas senectus taciti vulputate eros nostra mollis litora, faucibus integer luctus etiam ornare cubilia blandit habitasse viverra, ut taciti nunc tristique leo fames suspendisse. tellus odio class praesent vivamus laoreet netus, sit vehicula mi pharetra justo amet tortor, platea aliquet elit molestie turpis. luctus varius blandit ultricies dui nec lorem, aliquam est phasellus enim auctor nunc, molestie primis sit lacinia ultricies. velit hac elementum ullamcorper tincidunt ad duis himenaeos, rhoncus sodales erat velit tincidunt.</p>
+	</div> 
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 36): Estilização e saltos</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	.teste{
+		background-color: #ff0000; 
+	}
+</style>
+<body>
+	<h1>Estilização e saltos</h1>
+	
+	<h2>Propriedade style</h2>
+	<p>Define ou recupera estilos inline.</p>
+	<div class="teste" style="background: #00ff00;">Apenas um teste</div>
+	
+	<h2>Tamanho/Posição no documento</h2>
+	<p class="pTeste">Valores calculados pelo browser para posicionar o elemento na tela.</p>
+	<ul>
+		<li>offsetHeight</li>
+		<li>offsetWidth</li>
+		<li>offsetLeft</li>
+		<li>offsetTop</li>
+	</ul>
+
+	<h2>Tamanho/Posição na viewport</h2>
+	<p class="pTeste2">retorna o DOMRect, posicoes relativas à viewport e não mais ao documento.</p>
+	<ul>
+		<li>.getBoundingClientRect()</li>
+	</ul>
+
+	<h2>Saltos</h2>
+	<p>São maneiras de controlar o fluxo do programa.</p>
+	<ul>
+		<li>return</li>
+		<li>break</li>
+		<li>continue</li>
+	</ul>
+	<script>
+		var $teste = document.querySelector(".teste");
+		console.log("background:",$teste.style.background); // propriedade style só server para definir ou recuperar estilos inline
+
+		console.log("computado:",getComputedStyle($teste).background); // mostra os detalhes da cor computada
+
+		var $pTeste = document.querySelector(".pTeste");
+		console.log("offsetHeight:",$pTeste.offsetHeight); // altura atual do elemento
+		console.log("offsetWidth:",$pTeste.offsetWidth); // largura do atual elemento
+		console.log("offsetTop:",$pTeste.offsetTop); // posiçao no eixo y
+		console.log("offsetLeft:",$pTeste.offsetLeft); // posiçao no eixo x
+		
+		var $pTeste2 = document.querySelector(".pTeste2");
+		console.log("getBoundingClientRect():",$pTeste2.getBoundingClientRect()); // retorna o DOMRect, posicoes relativas à viewport e não mais ao documento
+	</script>
+</body>
+
+</html>

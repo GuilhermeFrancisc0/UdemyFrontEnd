@@ -1,0 +1,217 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Javascript(Seção 35): BOM</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+
+	<style>
+		body{
+			padding-top: 150px;
+		}
+		.menu{
+			text-align: center;
+			height: 150px;
+			background-color: red;
+			opacity: 0.6;
+			width: 100%;
+			transition: all 1s;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		.fx .menu{
+			height: 50px;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="menu">Desafio</div>
+	<h1>BOM</h1>
+	<p>Propriedades e métodos relativos ao browser.O BOM não está descrito nas ECMAScript, mas é bem aceito pelos browsers.</p>
+
+	<h2>Propriedades</h2>
+	<ul>
+		<li>innerWidth/innerHeight</li>
+		<li>outerWidth/outerHeight</li>
+		<li>opener</li>
+		<li>pageXOffset/pageYOffset</li>
+		<li>screenX/screenY</li>
+	</ul>
+
+	<h2>Objeto history</h2>
+	<p>Relativo ao histórico da navegação em páginas.</p>
+	<ul>
+		<li>.length</li>
+		<li>.go()</li>
+		<li>.back()</li>
+		<li>.forward()</li>
+	</ul>
+
+	<h2>Objeto location</h2>
+	<p>Cede informações a respeito da URL da pagina que esta sendo vista no browser.</p>
+	<ul>
+		<li>.assign(url)</li>
+		<li>.reload()</li>
+		<li>.replace(url)</li>
+		<li>.hash</li>
+		<li>.host</li>
+		<li>.hostname</li>
+		<li>.href</li>
+		<li>.pathname</li>
+		<li>.port</li>
+		<li>.protocol</li>
+		<li>.search</li>
+	</ul>
+
+	<h2>Objeto navigator</h2>
+	<p>Informa uma série de características do ambiente que está sendo hospedado.</p>
+	<ul>
+		<li>.appName</li>
+		<li>.appVersion</li>
+		<li>.userAgent</li>
+		<li>.platform</li>
+		<li>.cookieEnabled</li>
+		<li>.language</li>
+		<li>.mimeTypes</li>
+		<li>.plugins</li>
+	</ul>
+
+	<h2>Objeto screen</h2>
+	<p>Referente ao monitor do usuário,independente do browser.</p>
+	<ul>
+		<li>.availableWidth/availableHeigth</li>
+		<li>.widht/heigth</li>
+	</ul>
+
+	<h2>Métodos</h2>
+	<ul>
+		<li>alert()</li>
+		<li>confirm()</li>
+		<li>prompt()</li>
+		<li>open()</li>
+		<li>close()</li>
+		<li>scrollTo(x,y)</li>
+		<li>scrollBy(dx,dy)</li>
+		<li>print()</li>
+	</ul>
+
+	<h2>Eventos</h2>
+	<ul>
+		<li>Load</li>
+		<li>Error</li>
+		<li>Resize</li>
+		<li>scroll</li>
+		<li>Unload</li>
+		<li>beforeunload</li>
+	</ul>
+	<script>
+		console.log("innerHeight:",innerHeight); // altura interna atual do browser
+		console.log("innerWidth:",innerWidth); // largura interna atual do browser
+		console.log("outerHeight:",outerHeight); // altura externa atual do browser
+		console.log("outerWidtht:",outerWidth); // largura externa atual do browser
+		console.log("pageXOffset:",pageXOffset); // quanto scrollou a pagina no eixo x
+		console.log("pageYOffset:",pageYOffset); // quanto scrollou a pagina no eixo y
+		console.log("screenX:",screenX); // posiçao no eixo x da janela em relaçao ao monitor
+		console.log("screenY:",screenY); // posiçao no eixo y da janela em relaçao ao monitor
+
+		console.log("------------------------------");
+		
+		console.log("history.length:",history.length); // quantas páginas foram navegadas
+		console.log("history.go():"); // avança ou retrocede o numero de paginas navegadas
+		console.log("history.back()"); // vai para pagina passada
+		console.log("history.forward()");// vai para pagina seguinte
+
+		console.log("------------------------------");
+
+		console.log("location:",location);
+		console.log("location.assign(url)"); // pesquisa a url e interfere no history.length
+		console.log("location.reload()"); // recarrega a página
+		console.log("location.replace(url)"); // pesquisa a url e interfere no history.length
+		console.log("location.hash:",location.hash); // string apos o '#'
+		console.log("location.host:",location.host);
+		console.log("location.hostname:",location.hostname);
+		console.log("location.href:",location.href); // link
+		console.log("location.pathname:",location.pathname);
+		console.log("location.port:",location.port);
+		console.log("location.protocol:",location.protocol); // protocolo da pagina
+		console.log("location.search:",location.search); // tudo que for informaçao adicional passada na url
+
+		console.log("------------------------------");
+
+		console.log("navigator:",navigator);
+		console.log("navigator.userAgent:",navigator.userAgent); // informa de onde vem a requisição para sua página
+		console.log("navigator.plugins:",navigator.plugins); // lista de puglins
+		console.log("navigator.cookieEnabled:",navigator.cookieEnabled); // cookies habilitados
+		console.log("navigator.platform:",navigator.platform);
+
+		console.log("------------------------------");
+
+		console.log("screen:",screen);
+
+		console.log("------------------------------");
+
+		console.log("open()"); // se relaciona com o opener das propriedades, abre uma outra janela
+		console.log("close()"); // fecha a janela aberta por javascript pelo metodo open()
+		console.log("scrollTo(x,y)"); // scrolla para posiçao indicada fixa
+		console.log("scrollBy(dx,dy)"); // acrescenta o scroll atual
+		console.log("print()"); // abre a area da impressao
+
+		console.log("------------------------------");
+
+		window.addEventListener("load",function(){ // carregamento da pagina
+			console.log("load disparado");
+		});
+		window.addEventListener("DOMContentLoaded",function(){ // carregamento da pagina quando os itens do dom ja tiverem pronto,mais rapido que o load
+			console.log("DOMContenLoaded disparado");
+		});
+		window.addEventListener("resize",function(e){ // toda vez que muda o tamanho da pagina
+			console.log('resize disparado',e);
+
+		});
+		window.addEventListener("scroll",function(e){
+			console.log('scroll disparado',e);
+			console.log("scrollY:",pageYOffset);
+		});
+		window.addEventListener("unload",function(){ // apos fechar a pagina
+			console.log("unload disparado");
+			debugger;
+		
+		});
+		window.addEventListener("beforeunload",function(){ // imediatamente apos fechar a pagina
+			console.log("beforeunload disparado");
+			debugger;
+			
+		});
+
+		// Desafio
+
+		(function(){
+			var $menu = document.querySelector(".menu");
+
+			window.addEventListener("scroll",setupNav);
+
+			function setupNav(){
+				var posYScroll = getYscroll();
+				if (posYScroll>100  && !hasClassFx()) {
+					document.body.classList.add("fx");
+				}
+				if(posYScroll<=100  && hasClassFx()){
+					document.body.classList.remove("fx");
+				}
+			}
+			function getYscroll(){
+				return window.pageYOffset; // retorna a posiçao Y do scroll
+			}
+			function hasClassFx(){ // funçao para saber se foi adicionada a classe fx, impedindo que fique criando e removendo muitas vezes no DOM
+				return !!document.querySelector(".fx"); //transformando em booleano com !!
+			}
+		})();
+	</script>
+</body>
+
+</html>

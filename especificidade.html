@@ -1,0 +1,61 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Especificidade</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+</head>
+<style>
+	#unico{
+		color: blue;
+	}
+	p.destaque{
+		color: orange;
+	}
+	p[lang]{/*mesmo peso do 'p.destaque', ganha prioridade quem eh descrito por último*/
+		color: black;
+	}
+	.destaque{
+		color: red; /*sobrescrito pelo 'p.destaque' no grau de importância*/
+	}
+	p{
+		color: green /*!important*/ ; /* recurso utilizado no desespero, ganha de todos os outros graus de importância, n recomenda-se utilizar desse recurso*/
+	}
+
+
+	.jumbotron{
+		background-color: rgba(0,0,0,0.5);
+	}
+	.jumbotron__text{
+		color: white;
+	}
+	.jumbotron__title{
+		color: red;
+	}
+</style>
+<body>
+	<h1>Meu CSS não funciona</h1>
+
+	<p>Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+	
+	<p class="destaque">Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+	
+	<p class="destaque">Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+	
+	<p lang="pt-br" class="destaque">Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+
+	<p class="destaque" id="unico">Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+	
+	<p class="destaque" style="color: purple">Lorem ipsum nao da cara.. mo preguiça de entrar naquele site dnv pela centesima vez, tudo pra pegar aquelas frases longas sem sentido, pra q faria isso se eu mesmo consigo digitar? </p>
+	
+	<div class="jumbotron"> <!-- Modelo BEM (Block element modifier) -->
+		<h2 class="jumbotron__title">subtitulos</h2>
+		<p class="jumbotron__text">paragrafos</p>
+		<p class="jumbotron__text">paragrafos</p>
+	</div>
+</body>
+
+</html>

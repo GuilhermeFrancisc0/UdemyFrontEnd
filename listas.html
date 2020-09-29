@@ -1,0 +1,69 @@
+<!DOCTYPE html><!-- doctype informa ao agente de usuário a versão html que deve ser renderizada -->
+<html lang="pt-br">
+
+<head>
+	<title>Listas</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Guilherme Francisco">
+	<meta name="description" content="Estrutra base HTML">
+	<meta name="keywords" content=" Estrutura, Base ,Html">
+	<style>
+		li ol{
+			display: none;
+		}
+		li:hover{
+			background-color: gray;
+		}
+		li:hover ol{
+			display: block;
+		}
+		li ul{
+			height: 0;
+			overflow: hidden;
+			transition: height .5s;
+			list-style: none;
+		}
+		li:hover ul{
+			height: 250px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Manipulando listas</h1>
+	<ul>
+		<li>item 1</li>
+		<li>item 2
+			<ol>
+				<li>item 2.1</li>
+				<li>item 2.2</li>
+			</ol>
+		</li>
+		<li>item 3
+			<ul>
+				<li>to de olho</li>
+				<li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPfpS9I-xquZUqaBjsbCsCFgSsCfIHbUBI_d9SYh1GQBUvYaEr"></li>
+			</ul>	
+		</li>
+	</ul>
+	<hr>
+	<dl>
+		<dt>HTML</dt>
+		<dd>Linguagem de marcação de hipertexto</dd>
+
+		<dt>CSS</dt>
+		<dd>Linguagem para criação de folhas de estilos</dd>
+	</dl>
+	<hr>
+	<dl>
+		<dt>WWW</dt>
+		<dt>Internet</dt>
+		<dd>Rede mundial de computadores</dd>
+
+		<dt>Javascript</dt>
+		<dd>Linguagem script para internet</dd>
+		<dd>Para rodar no browser</dd>
+	</dl>
+	
+</body>
+
+</html>
